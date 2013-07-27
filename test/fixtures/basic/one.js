@@ -1,29 +1,30 @@
-// Top line comment.
-
 goog.provide('basic.one');
+
+goog.require('goog.array');
+goog.require('goog.array.ArrayLike');
 
 
 
 /**
  * Constructor.
- * @param {Object} config Configuration object.
+ * @param {goog.array.ArrayLike} things Things.
  * @constructor
  */
-basic.one.Class = function(config) {
+basic.one.Class = function(things) {
 
   /**
-   * @type {Object}
+   * @type {goog.array.ArrayLike}
    * @private
    */
-  this.config_ = config;
+  this.things_ = things;
 
 };
 
 
 /**
- * Get config.
- * @return {Object} Configuration object.
+ * Do something for each thing.
+ * @param {function} fn Function to be called with each thing.
  */
-basic.one.Class.prototype.getConfig = function() {
-  return this.config_;
+basic.one.Class.prototype.forEach = function(fn) {
+  goog.array.forEach(this.things_, fn);
 };
