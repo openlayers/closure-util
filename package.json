@@ -32,9 +32,11 @@
     "grunt": "0.4.1",
     "grunt-mocha-test": "0.6.2",
     "grunt-contrib-jshint": "0.6.0",
-    "grunt-contrib-watch": "0.5.1"
+    "grunt-contrib-watch": "0.5.1",
+    "bower": "1.1.0"
   },
   "scripts": {
+    "postinstall": "bower install",
     "test": "grunt test",
     "start": "grunt watch"
   }
