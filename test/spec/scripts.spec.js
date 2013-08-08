@@ -76,6 +76,26 @@ describe('scripts', function() {
         assert.deepEqual(script.provides, ['basic.one']);
       });
 
+      it('identifies a valid base file', function(done) {
+        scripts.read(path.join(fixtures, 'base', 'valid-base.js'))
+            .then(function(script) {
+              assert.deepEqual(script.provides, ['goog']);
+              done();
+            })
+            .fail(done);
+      });
+
+      it('throws on invalid base file', function(done) {
+        scripts.read(path.join(fixtures, 'base', 'invalid-base.js'))
+            .then(function(script) {
+              assert.throws(function() {
+                return script.provides;
+              });
+              done();
+            })
+            .fail(done);
+      });
+
     });
 
     describe('#requires', function() {
