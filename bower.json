@@ -1,6 +1,5 @@
 {
   "name": "closure-util",
   "dependencies": {
-    "closure-library": "*"
   }
 }
