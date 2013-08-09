@@ -24,18 +24,11 @@ describe('manager', function() {
     describe('#getDependencies()', function() {
 
       it('sorts', function(done) {
-        var manager = new Manager();
-
-        var files = ['fruit/banana.js', 'food.js', 'fruit/fruit.js']
-            .map(function(f) {
-              return path.join(fixtures, 'dependencies', f);
-            });
-
-        async.map(files, scripts.read, function(err, results) {
-          if (err) {
-            return done(err);
-          }
-          results.forEach(manager.addScript, manager);
+        var manager = new Manager({
+          patterns: path.join(fixtures, 'dependencies', '**/*.js')
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
           var dependencies = manager.getDependencies();
           var names = dependencies.map(function(s) {
             return path.basename(s.name);

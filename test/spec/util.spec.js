@@ -1,6 +1,9 @@
+var path = require('path');
+
 var assert = require('../helper').assert;
 
 var like = require('../../lib/util').like;
+var globs = require('../../lib/util').globs;
 
 describe('like', function() {
 
@@ -121,5 +124,21 @@ describe('like', function() {
     assert.isTrue(like(true, '*'));
   });
 
+});
+
+var fixtures = path.join(__dirname, '..', 'fixtures');
+
+describe('globs', function() {
+  it('matches based on patterns', function(done) {
+    globs(path.join(fixtures, 'dependencies', '**/*.js'),
+        function(err, result) {
+          if (err) {
+            return done(err);
+          }
+          assert.isArray(result);
+          assert.lengthOf(result, 3);
+          done();
+        });
+  });
 });
 
