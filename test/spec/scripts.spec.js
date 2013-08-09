@@ -24,12 +24,10 @@ describe('scripts', function() {
 
       var script;
       before(function(done) {
-        scripts.read(path.join(fixtures, 'basic', 'one.js'))
-            .then(function(s) {
-              script = s;
-              done();
-            })
-            .fail(done);
+        scripts.read(path.join(fixtures, 'basic', 'one.js'), function(err, s) {
+          script = s;
+          done(err);
+        });
       });
 
       it('is the AST', function() {
@@ -64,12 +62,10 @@ describe('scripts', function() {
       var script;
 
       before(function(done) {
-        scripts.read(path.join(fixtures, 'basic', 'one.js'))
-            .then(function(s) {
-              script = s;
-              done();
-            })
-            .fail(done);
+        scripts.read(path.join(fixtures, 'basic', 'one.js'), function(err, s) {
+          script = s;
+          done(err);
+        });
       });
 
       it('is an array of provides', function() {
@@ -77,23 +73,27 @@ describe('scripts', function() {
       });
 
       it('identifies a valid base file', function(done) {
-        scripts.read(path.join(fixtures, 'base', 'valid-base.js'))
-            .then(function(script) {
+        scripts.read(path.join(fixtures, 'base', 'valid-base.js'),
+            function(err, script) {
+              if (err) {
+                return done(err);
+              }
               assert.deepEqual(script.provides, ['goog']);
               done();
-            })
-            .fail(done);
+            });
       });
 
       it('throws on invalid base file', function(done) {
-        scripts.read(path.join(fixtures, 'base', 'invalid-base.js'))
-            .then(function(script) {
+        scripts.read(path.join(fixtures, 'base', 'invalid-base.js'),
+            function(err, script) {
+              if (err) {
+                return done(err);
+              }
               assert.throws(function() {
                 return script.provides;
               });
               done();
-            })
-            .fail(done);
+            });
       });
 
     });
@@ -102,12 +102,10 @@ describe('scripts', function() {
       var script;
 
       before(function(done) {
-        scripts.read(path.join(fixtures, 'basic', 'one.js'))
-            .then(function(s) {
-              script = s;
-              done();
-            })
-            .fail(done);
+        scripts.read(path.join(fixtures, 'basic', 'one.js'), function(err, s) {
+          script = s;
+          done(err);
+        });
       });
 
       it('is an array of requires', function() {
@@ -122,23 +120,24 @@ describe('scripts', function() {
   describe('read', function() {
 
     it('returns a promise that resolves to a script', function(done) {
-      scripts.read(path.join(fixtures, 'basic', 'one.js'))
-          .then(function(script) {
+      scripts.read(path.join(fixtures, 'basic', 'one.js'),
+          function(err, script) {
+            if (err) {
+              return done(err);
+            }
             assert.instanceOf(script, scripts.Script);
             done();
-          })
-          .fail(done);
+          });
     });
 
     it('returns a rejected promise for bogus path', function(done) {
-      scripts.read('bogus path')
-          .then(function(script) {
-            done(new Error('Bogus path should not resolve to a script'));
-          })
-          .fail(function(err) {
-            // success
-            done();
-          });
+      scripts.read('bogus path', function(err, script) {
+        if (script) {
+          return done(new Error('Bogus path should not resolve to a script'));
+        }
+        // success
+        done();
+      });
     });
 
   });

@@ -23,8 +23,8 @@
   ],
   "dependencies": {
     "esprima": "1.0.3",
-    "q": "0.9.6",
-    "q-io": "1.9.1"
+    "glob": "3.2.6",
+    "async": "0.2.9"
   },
   "devDependencies": {
     "chai": "1.7.2",

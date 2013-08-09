@@ -1,5 +1,7 @@
 var path = require('path');
 
+var async = require('async');
+
 var scripts = require('../../lib/scripts');
 var Manager = require('../../lib/manager').Manager;
 var helper = require('../helper');
@@ -23,27 +25,24 @@ describe('manager', function() {
 
       it('sorts', function(done) {
         var manager = new Manager();
-        scripts.read(path.join(fixtures, 'dependencies/fruit/banana.js'))
-            .then(function(s) {
-                manager.addScript(s);
-                return scripts.read(
-                    path.join(fixtures, 'dependencies/food.js'));
-              })
-            .then(function(s) {
-                manager.addScript(s);
-                return scripts.read(
-                    path.join(fixtures, 'dependencies/fruit/fruit.js'));
-              })
-            .then(function(s) {
-                manager.addScript(s);
-                var dependencies = manager.getDependencies();
-                var names = dependencies.map(function(s) {
-                  return path.basename(s.name);
-                });
-                assert.deepEqual(names, ['food.js', 'fruit.js', 'banana.js']);
-                done();
-              })
-            .fail(done);
+
+        var files = ['fruit/banana.js', 'food.js', 'fruit/fruit.js']
+            .map(function(f) {
+              return path.join(fixtures, 'dependencies', f);
+            });
+
+        async.map(files, scripts.read, function(err, results) {
+          if (err) {
+            return done(err);
+          }
+          results.forEach(manager.addScript, manager);
+          var dependencies = manager.getDependencies();
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names, ['food.js', 'fruit.js', 'banana.js']);
+          done();
+        });
       });
 
     });
