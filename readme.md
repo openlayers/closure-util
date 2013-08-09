@@ -2,23 +2,23 @@
 
 Utilities for working with Closure Library projects.
 
-# Plans
+## Plans
 
-## Debug Server
+### Debug Server
 
-Status: not started
+**Status:** not started
 
-The debug server provides a script loader that loads library files (your application and Closure Library) in dependency order.  The server can be configured to watch for changes to library files, triggering a reload to applications using the script loader.
+The debug server provides a script loader that loads library files (your application and Closure Library) in dependency order.  The server can be configured to watch for changes to library files, triggering a reload to pages using the script loader.  The server can also be configured to serve other static assets and can be used as middleware in an existing application or as a standalone server.
 
-## Replacement for `depswriter.py`
+### Replacement for `depswriter.py`
 
-Status: groundwork laid
+**Status:** groundwork laid
 
 The package can be used in other Node applications to write `deps.js` files.  A standalone utility provides the same functionality.
 
-# Currently
+## Currently
 
-See the [tests](tests/spec) for details about what works.  Currently, the package exports a `Manager` for working with scripts and resolving dependencies.
+See the [tests](test/spec) for details about what works.  Currently, the package exports a `Manager` for working with scripts and resolving dependencies.
 
 ```js
 var Manager = require('closure-util').Manager;
@@ -32,7 +32,7 @@ manager.on('ready', function() {
 });
 ```
 
-# Development
+## Development
 
 Setup:
 
