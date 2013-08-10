@@ -23,9 +23,9 @@ describe('manager', function() {
 
     describe('#getDependencies()', function() {
 
-      it('sorts', function(done) {
+      it('sorts lib scripts', function(done) {
         var manager = new Manager({
-          patterns: path.join(fixtures, 'dependencies', '**/*.js')
+          lib: path.join(fixtures, 'dependencies', '**/*.js')
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -34,6 +34,40 @@ describe('manager', function() {
             return path.basename(s.name);
           });
           assert.deepEqual(names, ['food.js', 'fruit.js', 'banana.js']);
+          done();
+        });
+      });
+
+      it('provides dependencies for a main script (car)', function(done) {
+        var manager = new Manager({
+          lib: path.join(fixtures, 'dependencies-main', 'lib/**/*.js'),
+          main: path.join(fixtures, 'dependencies-main', 'main-car.js')
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies();
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names,
+              ['fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
+          done();
+        });
+      });
+
+      it('provides dependencies for a main script (boat)', function(done) {
+        var manager = new Manager({
+          lib: path.join(fixtures, 'dependencies-main', 'lib/**/*.js'),
+          main: path.join(fixtures, 'dependencies-main', 'main-boat.js')
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies();
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names,
+              ['fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
           done();
         });
       });

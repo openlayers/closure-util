@@ -24,7 +24,8 @@ See the [tests](test/spec) for details about what works.  Currently, the package
 var Manager = require('closure-util').Manager;
 
 var manager = new Manager({
-  patterns: ['path/to/one/lib/**/*.js', 'path/to/another/lib/**/*.js']
+  lib: ['path/to/one/lib/**/*.js', 'path/to/another/lib/**/*.js'],
+  main: 'path/to/main.js'
 });
 manager.on('ready', function() {
   var dependencies = manager.getDependencies();
