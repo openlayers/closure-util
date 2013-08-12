@@ -1,5 +1,6 @@
 {
   "name": "closure-util",
   "dependencies": {
+    "closure-library": "git+https://code.google.com/p/closure-library/"
   }
 }
