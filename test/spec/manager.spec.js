@@ -25,7 +25,7 @@ describe('manager', function() {
 
       it('sorts lib scripts', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies', '**/*.js')
+          paths: path.join(fixtures, 'dependencies', '**/*.js')
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -40,12 +40,12 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (car)', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-main', 'lib/**/*.js'),
-          main: path.join(fixtures, 'dependencies-main', 'main-car.js')
+          paths: path.join(fixtures, 'dependencies-main', '**/*.js')
         });
         manager.on('error', done);
         manager.on('ready', function() {
-          var dependencies = manager.getDependencies();
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'dependencies-main', 'main-car.js'));
           var names = dependencies.map(function(s) {
             return path.basename(s.name);
           });
@@ -57,12 +57,12 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (boat)', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-main', 'lib/**/*.js'),
-          main: path.join(fixtures, 'dependencies-main', 'main-boat.js')
+          paths: path.join(fixtures, 'dependencies-main', '**/*.js')
         });
         manager.on('error', done);
         manager.on('ready', function() {
-          var dependencies = manager.getDependencies();
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'dependencies-main', 'main-boat.js'));
           var names = dependencies.map(function(s) {
             return path.basename(s.name);
           });
