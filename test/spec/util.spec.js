@@ -136,7 +136,7 @@ describe('globs', function() {
             return done(err);
           }
           assert.isArray(result);
-          assert.lengthOf(result, 3);
+          assert.lengthOf(result, 4);
           done();
         });
   });

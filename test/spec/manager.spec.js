@@ -33,7 +33,8 @@ describe('manager', function() {
           var names = dependencies.map(function(s) {
             return path.basename(s.name);
           });
-          assert.deepEqual(names, ['food.js', 'fruit.js', 'banana.js']);
+          assert.deepEqual(names,
+              ['base.js', 'food.js', 'fruit.js', 'banana.js']);
           done();
         });
       });
@@ -50,7 +51,7 @@ describe('manager', function() {
             return path.basename(s.name);
           });
           assert.deepEqual(names,
-              ['fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
+              ['base.js', 'fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
           done();
         });
       });
@@ -67,7 +68,7 @@ describe('manager', function() {
             return path.basename(s.name);
           });
           assert.deepEqual(names,
-              ['fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
+              ['base.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
           done();
         });
       });
