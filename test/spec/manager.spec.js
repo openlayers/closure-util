@@ -73,6 +73,22 @@ describe('manager', function() {
         });
       });
 
+      it('ignores files without requires or provides', function(done) {
+        var manager = new Manager({
+          paths: path.join(fixtures, 'dependencies-extra', '**/*.js')
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies();
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names,
+              ['base.js', 'parent.js', 'child.js']);
+          done();
+        });
+      });
+
     });
 
   });
