@@ -29,7 +29,8 @@
     "bower": "1.1.2",
     "handlebars": "1.0.12",
     "send": "0.1.4",
-    "npmlog": "0.0.4"
+    "npmlog": "0.0.4",
+    "gaze": "0.4.1"
   },
   "devDependencies": {
     "chai": "1.7.2",
