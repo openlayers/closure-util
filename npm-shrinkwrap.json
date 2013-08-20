@@ -1,6 +1,6 @@
 {
   "name": "closure-util",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "esprima": {
       "version": "1.0.3",
@@ -9,14 +9,13 @@
     "glob": {
       "version": "3.2.6",
       "from": "glob@3.2.6",
-      "resolved": "https://registry.npmjs.org/glob/-/glob-3.2.6.tgz",
       "dependencies": {
         "minimatch": {
           "version": "0.2.12",
           "from": "minimatch@~0.2.11",
           "dependencies": {
             "lru-cache": {
-              "version": "2.3.0",
+              "version": "2.3.1",
               "from": "lru-cache@2"
             },
             "sigmund": {
@@ -26,25 +25,22 @@
           }
         },
         "inherits": {
-          "version": "2.0.0",
+          "version": "2.0.1",
           "from": "inherits@2"
         }
       }
     },
     "async": {
       "version": "0.2.9",
-      "from": "async@0.2.9",
-      "resolved": "https://registry.npmjs.org/async/-/async-0.2.9.tgz"
+      "from": "async@0.2.9"
     },
     "lodash": {
       "version": "1.3.1",
-      "from": "lodash@1.3.1",
-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-1.3.1.tgz"
+      "from": "lodash@1.3.1"
     },
     "bower": {
-      "version": "1.1.2",
-      "from": "bower@1.1.2",
-      "resolved": "https://registry.npmjs.org/bower/-/bower-1.1.2.tgz",
+      "version": "1.2.1",
+      "from": "bower@1.2.1",
       "dependencies": {
         "abbrev": {
           "version": "1.0.4",
@@ -55,9 +51,8 @@
           "from": "archy@0.0.2"
         },
         "bower-config": {
-          "version": "0.3.5",
-          "from": "bower-config@~0.3.0",
-          "resolved": "https://registry.npmjs.org/bower-config/-/bower-config-0.3.5.tgz",
+          "version": "0.4.3",
+          "from": "bower-config@~0.4.0",
           "dependencies": {
             "optimist": {
               "version": "0.6.0",
@@ -84,44 +79,122 @@
           "from": "bower-endpoint-parser@~0.2.0"
         },
         "bower-json": {
-          "version": "0.3.0",
-          "from": "bower-json@~0.3.0",
+          "version": "0.4.0",
+          "from": "bower-json@~0.4.0",
           "dependencies": {
             "deep-extend": {
               "version": "0.2.5",
               "from": "deep-extend@~0.2.5"
+            },
+            "intersect": {
+              "version": "0.0.3",
+              "from": "intersect@~0.0.3"
             }
           }
         },
         "bower-logger": {
-          "version": "0.1.0",
-          "from": "bower-logger@~0.1.0"
+          "version": "0.2.1",
+          "from": "bower-logger@~0.2.0"
         },
         "bower-registry-client": {
-          "version": "0.1.3",
+          "version": "0.1.4",
           "from": "bower-registry-client@~0.1.2",
           "dependencies": {
-            "bower-config": {
-              "version": "0.2.0-rc.2",
-              "from": "bower-config@~0.2.0",
+            "request": {
+              "version": "2.27.0",
+              "from": "request@~2.27.0",
               "dependencies": {
-                "optimist": {
-                  "version": "0.6.0",
-                  "from": "optimist@~0.6.0",
+                "qs": {
+                  "version": "0.6.5",
+                  "from": "qs@~0.6.0"
+                },
+                "json-stringify-safe": {
+                  "version": "5.0.0",
+                  "from": "json-stringify-safe@~5.0.0"
+                },
+                "forever-agent": {
+                  "version": "0.5.0",
+                  "from": "forever-agent@~0.5.0"
+                },
+                "tunnel-agent": {
+                  "version": "0.3.0",
+                  "from": "tunnel-agent@~0.3.0"
+                },
+                "http-signature": {
+                  "version": "0.10.0",
+                  "from": "http-signature@~0.10.0",
                   "dependencies": {
-                    "wordwrap": {
-                      "version": "0.0.2",
-                      "from": "wordwrap@~0.0.2"
+                    "assert-plus": {
+                      "version": "0.1.2",
+                      "from": "assert-plus@0.1.2"
                     },
-                    "minimist": {
-                      "version": "0.0.1",
-                      "from": "minimist@~0.0.1"
+                    "asn1": {
+                      "version": "0.1.11",
+                      "from": "asn1@0.1.11"
+                    },
+                    "ctype": {
+                      "version": "0.5.2",
+                      "from": "ctype@0.5.2"
                     }
                   }
                 },
-                "osenv": {
-                  "version": "0.0.3",
-                  "from": "osenv@0.0.3"
+                "hawk": {
+                  "version": "1.0.0",
+                  "from": "hawk@~1.0.0",
+                  "dependencies": {
+                    "hoek": {
+                      "version": "0.9.1",
+                      "from": "hoek@0.9.x"
+                    },
+                    "boom": {
+                      "version": "0.4.2",
+                      "from": "boom@0.4.x"
+                    },
+                    "cryptiles": {
+                      "version": "0.2.2",
+                      "from": "cryptiles@0.2.x"
+                    },
+                    "sntp": {
+                      "version": "0.2.4",
+                      "from": "sntp@0.2.x"
+                    }
+                  }
+                },
+                "aws-sign": {
+                  "version": "0.3.0",
+                  "from": "aws-sign@~0.3.0"
+                },
+                "oauth-sign": {
+                  "version": "0.3.0",
+                  "from": "oauth-sign@~0.3.0"
+                },
+                "cookie-jar": {
+                  "version": "0.3.0",
+                  "from": "cookie-jar@~0.3.0"
+                },
+                "node-uuid": {
+                  "version": "1.4.1",
+                  "from": "node-uuid@~1.4.0"
+                },
+                "mime": {
+                  "version": "1.2.11",
+                  "from": "mime@~1.2.9"
+                },
+                "form-data": {
+                  "version": "0.1.0",
+                  "from": "form-data@~0.1.0",
+                  "dependencies": {
+                    "combined-stream": {
+                      "version": "0.0.4",
+                      "from": "combined-stream@~0.0.4",
+                      "dependencies": {
+                        "delayed-stream": {
+                          "version": "0.0.5",
+                          "from": "delayed-stream@0.0.5"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -168,7 +241,7 @@
           "from": "fstream@~0.1.22",
           "dependencies": {
             "inherits": {
-              "version": "2.0.0",
+              "version": "2.0.1",
               "from": "inherits@~2.0.0"
             }
           }
@@ -188,7 +261,7 @@
               }
             },
             "inherits": {
-              "version": "2.0.0",
+              "version": "2.0.1",
               "from": "inherits@2"
             }
           }
@@ -248,7 +321,7 @@
           "from": "nopt@~2.1.1"
         },
         "lru-cache": {
-          "version": "2.3.0",
+          "version": "2.3.1",
           "from": "lru-cache@2"
         },
         "open": {
@@ -349,8 +422,7 @@
             },
             "node-uuid": {
               "version": "1.4.1",
-              "from": "node-uuid@~1.4.0",
-              "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.1.tgz"
+              "from": "node-uuid@~1.4.0"
             },
             "mime": {
               "version": "1.2.11",
@@ -397,7 +469,7 @@
           "from": "semver@~2.1.0"
         },
         "stringify-object": {
-          "version": "0.1.4",
+          "version": "0.1.5",
           "from": "stringify-object@~0.1.4"
         },
         "sudo-block": {
@@ -425,7 +497,7 @@
           "from": "tar@~0.1.17",
           "dependencies": {
             "inherits": {
-              "version": "2.0.0",
+              "version": "2.0.1",
               "from": "inherits@2"
             },
             "block-stream": {
@@ -586,8 +658,7 @@
                 },
                 "node-uuid": {
                   "version": "1.4.1",
-                  "from": "node-uuid@~1.4.0",
-                  "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.1.tgz"
+                  "from": "node-uuid@~1.4.0"
                 },
                 "mime": {
                   "version": "1.2.11",
@@ -612,7 +683,7 @@
               }
             },
             "configstore": {
-              "version": "0.1.4",
+              "version": "0.1.5",
               "from": "configstore@~0.1.0",
               "dependencies": {
                 "js-yaml": {
@@ -670,7 +741,6 @@
     "handlebars": {
       "version": "1.0.12",
       "from": "handlebars@1.0.12",
-      "resolved": "https://registry.npmjs.org/handlebars/-/handlebars-1.0.12.tgz",
       "dependencies": {
         "optimist": {
           "version": "0.3.7",
@@ -689,7 +759,6 @@
             "source-map": {
               "version": "0.1.28",
               "from": "source-map@~0.1.7",
-              "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.1.28.tgz",
               "dependencies": {
                 "amdefine": {
                   "version": "0.0.8",
@@ -704,7 +773,6 @@
     "send": {
       "version": "0.1.4",
       "from": "send@0.1.4",
-      "resolved": "https://registry.npmjs.org/send/-/send-0.1.4.tgz",
       "dependencies": {
         "debug": {
           "version": "0.7.2",
@@ -727,7 +795,6 @@
     "npmlog": {
       "version": "0.0.4",
       "from": "npmlog@0.0.4",
-      "resolved": "https://registry.npmjs.org/npmlog/-/npmlog-0.0.4.tgz",
       "dependencies": {
         "ansi": {
           "version": "0.1.2",
@@ -737,7 +804,7 @@
     },
     "gaze": {
       "version": "0.4.1",
-      "from": "gaze@",
+      "from": "gaze@0.4.1",
       "dependencies": {
         "globule": {
           "version": "0.1.0",
@@ -763,12 +830,11 @@
             },
             "minimatch": {
               "version": "0.2.12",
-              "from": "minimatch@~0.2.11",
+              "from": "minimatch@~0.2.6",
               "dependencies": {
                 "lru-cache": {
                   "version": "2.3.1",
-                  "from": "lru-cache@2",
-                  "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.3.1.tgz"
+                  "from": "lru-cache@2"
                 },
                 "sigmund": {
                   "version": "1.0.0",
