@@ -4,7 +4,7 @@ Utilities for working with Closure Library projects.
 
 ## Currently
 
-See the [tests](test/spec) for details about what works.  Currently, the package exports a `Manager` for working with scripts and resolving dependencies.
+See the [tests](test/spec) for details about what works.  Currently, the package exports a `Manager` for resolving script dependencies and a `Server` for providing a development server.
 
 Create a manager for dealing with script dependencies.
 
@@ -27,9 +27,8 @@ var Manager = require('closure-util').Manager;
 var Server = require('closure-util').Server;
 
 var manager = new Manager({
+  closure: true,
   paths: [
-    'path/to/closure-library/closure/goog/**/*.js',
-    'path/to/closure-library/third_party/closure/goog/**/*.js',
     'path/to/app/src/**/*.js',
     'path/to/app/examples/*.js'
   ]
