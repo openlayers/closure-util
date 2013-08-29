@@ -12,7 +12,7 @@ Create a manager for dealing with script dependencies.
 var Manager = require('closure-util').Manager;
 
 var manager = new Manager({
-  paths: ['path/to/one/lib/**/*.js', 'path/to/another/lib/**/*.js', 'main.js'],
+  paths: ['path/to/one/lib/**/*.js', 'path/to/another/lib/**/*.js', 'main.js']
 });
 manager.on('ready', function() {
   var dependencies = manager.getDependencies('main.js');
