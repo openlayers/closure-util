@@ -44,7 +44,7 @@ manager.on('ready', function() {
     // this can be customized by providing a getMain method that accepts a
     // request object and returns the path to the main script
   });
-  server.start(3000);
+  server.listen(3000);
 });
 ```
 
