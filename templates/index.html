@@ -6,7 +6,7 @@
     <style>
       body {
         font-family: Tahoma, Geneva, sans-serif;
-        font-size: 18px;
+        font-size: 16px;
       }
       a {
         text-decoration: none;
@@ -23,18 +23,26 @@
         overflow: hidden;
         width: 24px;
         height: 24px;
-        margin-bottom: -5px;
+        margin-bottom: -4px;
+      }
+      a:hover path {
+        fill-opacity: 1;
+        stroke-opacity: 1;
       }
       .folder path {
         fill: #6688cc;
-        stroke: #aaaaaa;
-        stroke-width: 1;
+        fill-opacity: 0.75;
+        stroke: #009;
+        stroke-opacity: 0.75;
+        stroke-width: 0.5;
         stroke-linejoin: round;
       }
       .file path {
-        fill: none;
-        stroke: #aaa;
-        stroke-width: 1;
+        fill: #fffffa;
+        fill-opacity: 0.5;
+        stroke: #009;
+        stroke-opacity: 0.75;
+        stroke-width: 0.5;
         stroke-linejoin: round;
       }
     </style>
@@ -46,12 +54,12 @@
         <a href="./{{path}}">
           {{#if dir}}
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="folder">
-              <path d="m2,21l0,-14l1,0l2,-2l5,0l2,2l10,0l1,1l0,13l-20,0z">
+              <path d="m2,21l0,-14l1,0l2,-2l5,0l2,2l9,0l1,1l0,13l-19,0z">
             </svg>
           {{else}}
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="file">
-              <path d="m5,3l0,18l15,0l0,-14l-4,-4l-11,0z"></path>
-              <path d="m15,3l0,5l5,0"></path>
+              <path d="m5,3l0,18l14,0l0,-14l-4,-4l-10,0z"></path>
+              <path d="m14,3l0,5l5,0"></path>
             </svg>
           {{/if}}
           {{name}}
