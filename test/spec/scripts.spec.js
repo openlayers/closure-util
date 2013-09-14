@@ -20,7 +20,7 @@ describe('scripts', function() {
       });
     });
 
-    describe('#ast_', function() {
+    describe('#_ast', function() {
 
       var script;
       before(function(done) {
@@ -31,13 +31,13 @@ describe('scripts', function() {
       });
 
       it('is the AST', function() {
-        var ast = script.ast_;
+        var ast = script._ast;
         assert.equal(ast.type, 'Program');
         assert.lengthOf(ast.body, 5);
       });
 
       it('resolves to the same AST on multiple calls', function() {
-        var ast = script.ast_;
+        var ast = script._ast;
         assert.equal(ast.body[0].type, 'ExpressionStatement');
 
         var provide = ast.body[0].expression;
