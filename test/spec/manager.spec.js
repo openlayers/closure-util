@@ -25,7 +25,8 @@ describe('manager', function() {
 
       it('sorts lib scripts', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies', '**/*.js')
+          cwd: fixtures,
+          lib: 'dependencies/**/*.js'
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -41,8 +42,9 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (car)', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-main', '+(lib|goog)/**/*.js'),
-          main: path.join(fixtures, 'dependencies-main', 'main-*.js')
+          cwd: fixtures,
+          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -59,8 +61,9 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (boat)', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-main', '+(lib|goog)/**/*.js'),
-          main: path.join(fixtures, 'dependencies-main', 'main-*.js')
+          cwd: fixtures,
+          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -77,8 +80,9 @@ describe('manager', function() {
 
       it('does not provide main scripts if not requested', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-main', '+(lib|goog)/**/*.js'),
-          main: path.join(fixtures, 'dependencies-main', 'main-*.js')
+          cwd: fixtures,
+          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
         manager.on('ready', function() {
@@ -99,7 +103,8 @@ describe('manager', function() {
 
       it('ignores files without requires or provides', function(done) {
         var manager = new Manager({
-          lib: path.join(fixtures, 'dependencies-extra', '**/*.js')
+          cwd: fixtures,
+          lib: 'dependencies-extra/**/*.js'
         });
         manager.on('error', done);
         manager.on('ready', function() {
