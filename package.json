@@ -29,6 +29,7 @@
     "graceful-fs": "2.0.1",
     "handlebars": "1.0.12",
     "send": "0.1.4",
+    "minimatch": "0.2.12",
     "npmlog": "0.0.4",
     "gaze": "0.4.1",
     "acorn": "0.3.1",

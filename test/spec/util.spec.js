@@ -4,6 +4,7 @@ var assert = require('../helper').assert;
 
 var like = require('../../lib/util').like;
 var globs = require('../../lib/util').globs;
+var minimatches = require('../../lib/util').minimatches;
 
 describe('like', function() {
 
@@ -129,7 +130,7 @@ describe('like', function() {
 var fixtures = path.join(__dirname, '..', 'fixtures');
 
 describe('globs', function() {
-  it('matches based on patterns', function(done) {
+  it('matches files based on patterns', function(done) {
     globs(path.join(fixtures, 'dependencies', '**/*.js'),
         function(err, result) {
           if (err) {
@@ -142,3 +143,14 @@ describe('globs', function() {
   });
 });
 
+describe('minimatches', function() {
+  it('returns true if any pattern matches', function() {
+    assert.isTrue(minimatches('foo.bar', ['baz', '*.bar']));
+    assert.isTrue(minimatches('path/to/foo.bar', ['baz', '**/*.bar']));
+  });
+
+  it('returns false if no pattern matches', function() {
+    assert.isFalse(minimatches('foo.bar', ['baz', '*.bam']));
+    assert.isFalse(minimatches('path/to/foo.bar', ['baz', '*.bar']));
+  });
+});
