@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Index {{path}}</title>
+    <title>Index {{pathname}}</title>
     <meta charset="utf-8">
     <style>
       body {
@@ -46,6 +46,15 @@
         stroke-linejoin: round;
       }
     </style>
+    {{#if socket}}
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+        var socket = io.connect('/');
+        socket.on('error', function(error) {
+          alert(error.message);
+        });
+      </script>
+    {{/if}}
   </head>
   <body>
     <ul>
