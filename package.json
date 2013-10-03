@@ -3,17 +3,17 @@
   "version": "0.7.1",
   "description": "Utilities for Closure Library based projects.",
   "main": "index.js",
-  "homepage": "https://github.com/tschaub/closure-util",
+  "homepage": "https://github.com/openlayers/closure-util",
   "author": {
     "name": "Tim Schaub",
     "url": "http://tschaub.net/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tschaub/closure-util.git"
+    "url": "git://github.com/openlayers/closure-util.git"
   },
   "bugs": {
-    "url": "https://github.com/tschaub/closure-util/issues"
+    "url": "https://github.com/openlayers/closure-util/issues"
   },
   "licenses": [
     {
