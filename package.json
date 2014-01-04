@@ -36,7 +36,8 @@
     "closurecompiler": "1.1.4",
     "socket.io": "0.9.16",
     "download": "0.1.7",
-    "config-chain": "1.1.8"
+    "config-chain": "1.1.8",
+    "rimraf": "2.2.5"
   },
   "devDependencies": {
     "chai": "1.7.2",
