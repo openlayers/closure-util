@@ -22,30 +22,31 @@
     }
   ],
   "dependencies": {
-    "glob": "3.2.6",
+    "glob": "3.2.7",
     "async": "0.2.9",
-    "lodash": "1.3.1",
-    "bower": "1.2.6",
+    "lodash": "2.4.1",
     "graceful-fs": "2.0.1",
-    "handlebars": "1.0.12",
+    "handlebars": "1.3.0",
     "send": "0.1.4",
-    "minimatch": "0.2.12",
-    "npmlog": "0.0.4",
-    "gaze": "0.4.1",
-    "acorn": "0.3.1",
-    "closurecompiler": "1.1.4",
-    "socket.io": "0.9.16"
+    "minimatch": "0.2.14",
+    "npmlog": "0.0.6",
+    "gaze": "0.4.3",
+    "acorn": "0.4.2",
+    "socket.io": "0.9.16",
+    "config-chain": "1.1.8",
+    "fs-extra": "0.8.1",
+    "get-down": "0.3.0"
   },
   "devDependencies": {
-    "chai": "1.7.2",
-    "grunt-cli": "0.1.9",
-    "grunt": "0.4.1",
-    "grunt-mocha-test": "0.6.2",
-    "grunt-contrib-jshint": "0.6.3",
-    "grunt-contrib-watch": "0.5.1"
+    "chai": "~1.8.1",
+    "grunt-cli": "~0.1.11",
+    "grunt": "~0.4.2",
+    "grunt-mocha-test": "~0.8.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "install": "node install.js",
     "test": "grunt test",
     "start": "grunt watch"
   }

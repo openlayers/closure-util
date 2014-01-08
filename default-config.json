@@ -1,0 +1,5 @@
+{
+  "compiler_url": "http://dl.google.com/closure-compiler/compiler-latest.zip",
+  "library_url": "https://closure-library.googlecode.com/archive/ab89cf45c216615d73a2f5dea720afb9d3415d1f.zip",
+  "log_level": "info"
+}
