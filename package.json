@@ -25,7 +25,6 @@
     "glob": "3.2.7",
     "async": "0.2.9",
     "lodash": "2.4.1",
-    "bower": "1.2.8",
     "graceful-fs": "2.0.1",
     "handlebars": "1.3.0",
     "send": "0.1.4",
@@ -48,7 +47,6 @@
   },
   "scripts": {
     "install": "node install.js",
-    "postinstall": "bower install",
     "test": "grunt test",
     "start": "grunt watch"
   }

@@ -69,3 +69,10 @@ maybeDownload('compiler', config.get('compiler_url'), function(err, dir) {
     return process.exit(1);
   }
 });
+
+maybeDownload('library', config.get('library_url'), function(err, dir) {
+  if (err) {
+    log.error('install', err.message);
+    return process.exit(1);
+  }
+});
