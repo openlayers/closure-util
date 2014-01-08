@@ -15,8 +15,8 @@ var config = require('./lib/config');
 log.level = config.get('log_level');
 
 
-function maybeDownload(url, callback) {
-  var dir = util.getDependency(url);
+function maybeDownload(alias, url, callback) {
+  var dir = util.getDependency(alias, url);
 
   fse.exists(dir, function(exists) {
     if (exists) {
@@ -63,7 +63,7 @@ function maybeDownload(url, callback) {
 
 }
 
-maybeDownload(config.get('compiler_url'), function(err, dir) {
+maybeDownload('compiler', config.get('compiler_url'), function(err, dir) {
   if (err) {
     log.error('install', err.message);
     return process.exit(1);
