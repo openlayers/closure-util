@@ -34,9 +34,9 @@
     "gaze": "0.4.3",
     "acorn": "0.4.2",
     "socket.io": "0.9.16",
-    "download": "0.1.7",
     "config-chain": "1.1.8",
-    "rimraf": "2.2.5"
+    "fs-extra": "0.8.1",
+    "get-down": "0.3.0"
   },
   "devDependencies": {
     "chai": "~1.8.1",

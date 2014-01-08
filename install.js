@@ -1,9 +1,8 @@
-var fs = require('fs');
 var path = require('path');
 
-var download = require('download');
+var download = require('get-down');
 var log = require('npmlog');
-var rimraf = require('rimraf');
+var fse = require('fs-extra');
 
 var util = require('./lib/util');
 var config = require('./lib/config');
@@ -19,38 +18,44 @@ log.level = config.get('log_level');
 function maybeDownload(url, callback) {
   var dir = util.getDependency(url);
 
-  fs.exists(dir, function(exists) {
+  fse.exists(dir, function(exists) {
     if (exists) {
       log.verbose('install', 'Skipping ' + url);
       log.verbose('install', 'To force download delete ' + dir);
       callback(null, dir);
     } else {
-      log.info('install', 'Downloading ' + url);
-      var dl = download(url, dir, {extract: true});
-
-      var length = 0;
-      var time = Date.now();
-      dl.on('data', function(chunk) {
-        var now = Date.now();
-        length += chunk.length;
-        if (now - time > 5000) {
-          log.info('install',
-              'Received ' + Math.floor(length / 1024) + 'K bytes');
-          time = now;
+      fse.mkdirp(dir, function(err) {
+        if (err) {
+          return callback(err);
         }
-      });
+        log.info('install', 'Downloading ' + url);
+        var dl = download(url, {dest: dir, extract: true});
 
-      dl.once('close', function() {
-        log.info('install', 'Download complete: ' + dir);
-        callback(null, dir);
-      });
-
-      dl.on('error', function(err) {
-        rimraf(dir, function(rimrafErr) {
-          if (rimrafErr) {
-            log.error('install', rimrafErr);
+        dl.on('progress', function(state) {
+          if (state.retry) {
+            var delay = Math.round(state.timeout / 1000) + 's';
+            log.info('install', 'Download failed, retrying again in ' + delay);
+          } else {
+            var progress = Math.floor(state.received / 1024) + 'K';
+            if (state.percent) {
+              progress = state.percent + '% (' + progress + ')';
+            }
+            log.info('install', 'Received ' + progress);
           }
-          callback(err);
+        });
+
+        dl.once('end', function(dest) {
+          log.info('install', 'Download complete: ' + dest);
+          callback(null, dest);
+        });
+
+        dl.on('error', function(err) {
+          fse.remove(dir, function(rimrafErr) {
+            if (rimrafErr) {
+              log.error('install', rimrafErr);
+            }
+            callback(err);
+          });
         });
       });
     }
