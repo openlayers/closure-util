@@ -38,7 +38,7 @@ manager.on('ready', function() {
   var server = new Server({
     manager: manager,
     root: 'path/to/app', // static resources will be served from here
-    loaderPath: '/examples/lib.js' // the script loader will be provided here
+    loader: '/examples/lib.js' // the script loader will be provided here
     // this assumes the main script can be derived from the query string like:
     // <script src='lib.js?main=example-1.js'></script>
     // this can be customized by providing a getMain method that accepts a
