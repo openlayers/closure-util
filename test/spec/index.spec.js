@@ -11,7 +11,7 @@ describe('The API', function() {
 
   describe('Manager', function() {
     it('provides a manager for parsing and watching scripts', function() {
-      var manager = new closure.Manager();
+      var manager = new closure.Manager({closure: false});
       assert.instanceOf(manager, closure.Manager);
     });
   });
@@ -35,6 +35,7 @@ describe('The API', function() {
   describe('getDependencies()', function() {
     it('generates a list of scripts in dependency order', function(done) {
       var config = {
+        closure: false,
         cwd: fixtures,
         lib: 'dependencies/**/*.js'
       };

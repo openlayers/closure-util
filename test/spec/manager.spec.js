@@ -15,7 +15,7 @@ describe('manager', function() {
 
     describe('constructor', function() {
       it('creates a Manager instance', function() {
-        var manager = new Manager();
+        var manager = new Manager({closure: false});
 
         assert.instanceOf(manager, Manager);
       });
@@ -24,6 +24,7 @@ describe('manager', function() {
     describe('"ready" event', function() {
       it('is fired after scripts are parsed', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies/**/*.js'
         });
@@ -37,6 +38,7 @@ describe('manager', function() {
     describe('"error" event', function() {
       it('is fired on initial parsing error', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'errors/**/*.js'
         });
@@ -53,6 +55,7 @@ describe('manager', function() {
     describe('"beforewatch" event', function() {
       it('is fired before ready event', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies/**/*.js'
         });
@@ -71,6 +74,7 @@ describe('manager', function() {
     describe('"close" event', function() {
       it('is fired after calling close', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies/**/*.js'
         });
@@ -88,6 +92,7 @@ describe('manager', function() {
 
       it('sorts lib scripts', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies/**/*.js'
         });
@@ -105,6 +110,7 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (car)', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies-main/+(lib|goog)/**/*.js',
           main: 'dependencies-main/main-*.js'
@@ -124,6 +130,7 @@ describe('manager', function() {
 
       it('provides dependencies for a main script (boat)', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies-main/+(lib|goog)/**/*.js',
           main: 'dependencies-main/main-*.js'
@@ -143,6 +150,7 @@ describe('manager', function() {
 
       it('does not provide main scripts if not requested', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies-main/+(lib|goog)/**/*.js',
           main: 'dependencies-main/main-*.js'
@@ -166,6 +174,7 @@ describe('manager', function() {
 
       it('ignores files without requires or provides', function(done) {
         var manager = new Manager({
+          closure: false,
           cwd: fixtures,
           lib: 'dependencies-extra/**/*.js'
         });
