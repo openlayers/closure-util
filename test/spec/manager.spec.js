@@ -21,6 +21,35 @@ describe('manager', function() {
       });
     });
 
+    describe('"ready" event', function() {
+      it('is fired after scripts are parsed', function(done) {
+        var manager = new Manager({
+          cwd: fixtures,
+          lib: 'dependencies/**/*.js'
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          done();
+        });
+      });
+    });
+
+    describe('"error" event', function() {
+      it('is fired on initial parsing error', function(done) {
+        var manager = new Manager({
+          cwd: fixtures,
+          lib: 'errors/**/*.js'
+        });
+        manager.on('error', function(err) {
+          assert.instanceOf(err, SyntaxError);
+          done();
+        });
+        manager.on('ready', function() {
+          done(new Error('Expected error event'));
+        });
+      });
+    });
+
     describe('#getDependencies()', function() {
 
       it('sorts lib scripts', function(done) {
