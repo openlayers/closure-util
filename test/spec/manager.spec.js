@@ -50,6 +50,40 @@ describe('manager', function() {
       });
     });
 
+    describe('"beforewatch" event', function() {
+      it('is fired before ready event', function(done) {
+        var manager = new Manager({
+          cwd: fixtures,
+          lib: 'dependencies/**/*.js'
+        });
+        var before = false;
+        manager.on('error', done);
+        manager.on('beforewatch', function() {
+          before = true;
+        });
+        manager.on('ready', function() {
+          assert.isTrue(before);
+          done();
+        });
+      });
+    });
+
+    describe('"close" event', function() {
+      it('is fired after calling close', function(done) {
+        var manager = new Manager({
+          cwd: fixtures,
+          lib: 'dependencies/**/*.js'
+        });
+        manager.on('error', done);
+        manager.on('beforewatch', function() {
+          manager.close();
+        });
+        manager.on('close', function() {
+          done();
+        });
+      });
+    });
+
     describe('#getDependencies()', function() {
 
       it('sorts lib scripts', function(done) {
