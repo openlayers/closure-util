@@ -2,40 +2,38 @@
 
 Utilities for working with Closure Library projects.
 
-## Currently
+## API
 
-See the [tests](test/spec) for details about what works.  Currently, the package exports a `Manager` for resolving script dependencies and a `Server` for providing a development server.
+### <a id="manager">`new Manager(config)`</a>
 
-Create a manager for dealing with script dependencies.
+A script manager parses scripts for dependencies and watches those scripts for changes, updating dependencies as scripts are added, modified, or deleted.  A manager is used in conjunction with a [server](#server) for providing a debug loader during development.
 
-```js
-var Manager = require('closure-util').Manager;
+ * **config.lib** - `string|Array.<string>` A list of [path patterns](https://github.com/isaacs/minimatch) for your library scripts (e.g. `'lib/**/*.js'`).  Note that path delimters in these patterns should always be forward slashes (even on Windows).
+ * **config.main** - `string|Array.<string>` Patterns for your main script(s).
 
-var manager = new Manager({
-  paths: ['path/to/one/lib/**/*.js', 'path/to/another/lib/**/*.js', 'main.js']
-});
-manager.on('ready', function() {
-  var dependencies = manager.getDependencies('main.js');
-  // now you've got a list of scripts in dependency order
-});
-```
+The manager is an [event emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) that emits the following events:
+
+ * **ready** - The manager is ready (all scripts parsed and dependencies resolved).
+ * **error** - Listeners will be called with an `Error` instance representing what went wrong.
+
+### <a id="server">`new Server(config)`</a>
 
 Create a development server providing a script loader and static assets.
 
-```js
-var Manager = require('closure-util').Manager;
-var Server = require('closure-util').Server;
+ * **config.manager** - `Manager` A script manager.
+ * **config.root** - `string` Path to root directory for scripts and static assets (default is `process.cwd()`).
+ * **config.loader** - `string` URL path for script loader.
 
-var manager = new Manager({
-  closure: true,
-  paths: [
-    'path/to/app/src/**/*.js',
-    'path/to/app/examples/*.js'
-  ]
+```js
+var closure = require('closure-util');
+
+var manager = new closure.Manager({
+  lib: ['path/to/app/src/**/*.js']
+  main: 'path/to/app/examples/*.js'
 });
 manager.on('error', function(e) {throw e});
 manager.on('ready', function() {
-  var server = new Server({
+  var server = new closure.Server({
     manager: manager,
     root: 'path/to/app', // static resources will be served from here
     loader: '/examples/lib.js' // the script loader will be provided here
@@ -47,6 +45,20 @@ manager.on('ready', function() {
   server.listen(3000);
 });
 ```
+
+### <a id="getdependencies">`getDependencies(config, callback)`</a>
+
+The `getDependencies` function generates a list of script paths in dependency order.
+
+ * **config** - `Object` A configuration object of the same form as the [manager config](#manager-config).
+ * **callback** - `function(Error, Array.<string>)` Called with a list of script paths in dependency order (or a parsing error).
+
+### <a id="compile">`compile(options, callback)`</a>
+
+The `compile` function drives the Closure Compiler.
+
+ * **options** - `Object` [Options](compiler-options.txt) for the compiler (without the `--` prefix).  E.g. the `--output_wrapper` option could be specified with `{output_wrapper: '(function(){%output%})();'}`.  For options that can be specified multiple times, provide an array of values (e.g. `{js: ['one.js', 'two.js']}`).  For options that are flags (no value), provide a boolean (e.g. `{use_types_for_optimization: true}`).
+ * **callback** - `function(Error, string)` Called with the compiler output (or any compilation error).
 
 ## Configuration
 
