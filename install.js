@@ -33,7 +33,7 @@ function maybeDownload(alias, url, callback) {
 
         dl.on('progress', function(state) {
           if (state.retry) {
-            var delay = Math.round(state.timeout / 1000) + 's';
+            var delay = Math.round(state.delay / 1000) + 's';
             log.info('install', 'Download failed, retrying again in ' + delay);
           } else {
             var progress = Math.floor(state.received / 1024) + 'K';
