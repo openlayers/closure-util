@@ -161,6 +161,8 @@ Options for the Closure Compiler:
                                           r. The %basename% placeholder can
                                           also be used to substitute the base
                                           name of the module output file.
+ --new_type_inf                         : In development new type inference
+                                          pass. DO NOT USE!
  --only_closure_dependencies            : Only include files in the transitive
                                           dependency of the entry points
                                           (specified by closure_entry_point).
@@ -254,4 +256,4 @@ Options for the Closure Compiler:
 
 
 
-Current for http://dl.google.com/closure-compiler/compiler-20131118.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140303.zip
