@@ -53,7 +53,7 @@ The `getDependencies` function generates a list of script paths in dependency or
  * **config** - `Object` A configuration object of the same form as the [manager config](#manager-config).
  * **callback** - `function(Error, Array.<string>)` Called with a list of script paths in dependency order (or a parsing error).
 
-### <a id="compile">`compile(options, callback)`</a>
+### <a id="compile">`compile(options, [jvm], callback)`</a>
 
 The `compile` function drives the Closure Compiler.
 
