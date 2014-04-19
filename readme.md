@@ -8,7 +8,7 @@ Utilities for working with Closure Library projects.
 
 A script manager parses scripts for dependencies and watches those scripts for changes, updating dependencies as scripts are added, modified, or deleted.  A manager is used in conjunction with a [server](#server) for providing a debug loader during development.
 
- * **config.lib** - `string|Array.<string>` A list of [path patterns](https://github.com/isaacs/minimatch) for your library scripts (e.g. `'lib/**/*.js'`).  Note that path delimters in these patterns should always be forward slashes (even on Windows).
+ * **config.lib** - `string|Array.<string>` A list of [path patterns](https://github.com/isaacs/minimatch) for your library scripts (e.g. `'lib/**/*.js'`).  Note that path delimiters in these patterns should always be forward slashes (even on Windows).
  * **config.main** - `string|Array.<string>` Patterns for your main script(s).
 
 The manager is an [event emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) that emits the following events:
@@ -63,7 +63,7 @@ The `compile` function drives the Closure Compiler.
 
 ## Configuration
 
-The `closure-util` package downloads the Closure Compiler and Closure Library when installed.  To use a different version of these resources, you can provide some basic configuration options before running `npm install`.  Your configuration options can come from a number of different sources.  The most straightforward way is to include a `closure-util.json` file in your project.  You can also provide configuration options via environemnt variables.  Environment variables have the `closure_` prefix in front of the options described below (e.g. `closure_log_level` to specify the `log_level` option).
+The `closure-util` package downloads the Closure Compiler and Closure Library when installed.  To use a different version of these resources, you can provide some basic configuration options before running `npm install`.  Your configuration options can come from a number of different sources.  The most straightforward way is to include a `closure-util.json` file in your project.  You can also provide configuration options via environment variables.  Environment variables have the `closure_` prefix in front of the options described below (e.g. `closure_log_level` to specify the `log_level` option).
 
 Available configuration options (see `default-config.json` for default values):
 
