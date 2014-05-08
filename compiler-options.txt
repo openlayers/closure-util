@@ -82,7 +82,7 @@ Options for the Closure Compiler:
                                           suspiciousCode, strictModuleDepCheck,
                                           typeInvalidation, undefinedNames,
                                           undefinedVars, unknownDefines,
-                                          uselessCode, visibility
+                                          uselessCode, googBase, visibility
  --jscomp_off VAL                       : Turn off the named class of warnings.
                                           Options:accessControls, ambiguousFunct
                                           ionDecl, checkEventfulObjectDisposal,
@@ -99,7 +99,7 @@ Options for the Closure Compiler:
                                           suspiciousCode, strictModuleDepCheck,
                                           typeInvalidation, undefinedNames,
                                           undefinedVars, unknownDefines,
-                                          uselessCode, visibility
+                                          uselessCode, googBase, visibility
  --jscomp_warning VAL                   : Make the named class of warnings a
                                           normal warning. Options:accessControls
                                           , ambiguousFunctionDecl, checkEventful
@@ -116,8 +116,8 @@ Options for the Closure Compiler:
                                           reportUnknownTypes, suspiciousCode,
                                           strictModuleDepCheck, typeInvalidation
                                           , undefinedNames, undefinedVars,
-                                          unknownDefines, uselessCode, visibilit
-                                          y
+                                          unknownDefines, uselessCode, googBase,
+                                          visibility
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
                                           (default), ECMASCRIPT5, ECMASCRIPT5_ST
@@ -206,9 +206,9 @@ Options for the Closure Compiler:
  --property_map_output_file VAL         : File where the serialized version of
                                           the property renaming map produced
                                           should be saved
- --source_map_format [V1 | DEFAULT |    : The source map format to produce.
- V2 | V3]                               : Options: V1, V2, V3, DEFAULT. DEFAULT
-                                          produces V2.
+ --source_map_format [DEFAULT | V3]     : The source map format to produce.
+                                          Options are V3 and DEFAULT, which are
+                                          equivalent.
  --summary_detail_level N               : Controls how detailed the compilation
                                           summary is. Values: 0 (never print
                                           summary), 1 (print summary only if
@@ -256,4 +256,4 @@ Options for the Closure Compiler:
 
 
 
-Current for http://dl.google.com/closure-compiler/compiler-20140303.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140407.zip
