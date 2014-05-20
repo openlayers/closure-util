@@ -190,6 +190,26 @@ describe('manager', function() {
         });
       });
 
+      it('includes scripts with goog.addDependency calls', function(done) {
+        var manager = new Manager({
+          closure: false,
+          cwd: fixtures,
+          lib: 'adds-deps/+(lib|goog)/**/*.js',
+          main: 'adds-deps/main.js'
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'adds-deps', 'main.js'));
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names,
+              ['base.js', 'math.js', 'main.js', 'deps.js']);
+          done();
+        });
+      });
+
     });
 
   });
