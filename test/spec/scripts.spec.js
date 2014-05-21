@@ -58,6 +58,34 @@ describe('scripts', function() {
 
     });
 
+    describe('#addsDependencies', function() {
+
+      it('is true for scripts with goog.addDependency calls', function(done) {
+        var p = path.join(fixtures, 'adds-deps', 'goog', 'deps.js');
+        scripts.read(p, function(err, script) {
+          if (err) {
+            done(err);
+          } else {
+            assert.equal(script.addsDependencies, true);
+            done();
+          }
+        });
+      });
+
+      it('is false with no goog.addDependency calls', function(done) {
+        var p = path.join(fixtures, 'adds-deps', 'main.js');
+        scripts.read(p, function(err, script) {
+          if (err) {
+            done(err);
+          } else {
+            assert.equal(script.addsDependencies, false);
+            done();
+          }
+        });
+      });
+
+    });
+
     describe('#provides', function() {
       var script;
 
