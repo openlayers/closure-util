@@ -60,7 +60,7 @@ The `getDependencies` function generates a list of script paths in dependency or
 The `compile` function drives the Closure Compiler.
 
  * **options** - `Object` [Options](compiler-options.txt) for the compiler (without the `--` prefix).  E.g. the `--output_wrapper` option could be specified with `{output_wrapper: '(function(){%output%})();'}`.  For options that can be specified multiple times, provide an array of values (e.g. `{js: ['one.js', 'two.js']}`).  For options that are flags (no value), provide a boolean (e.g. `{use_types_for_optimization: true}`).
- * **jvm** - `Array.<string>` Optional arguments for the JVM.  If this argument is absent (if the function is called with two arguments), `['-server', '-XX:+TieredCompilation']` will be used as JVM arguments.  To use [different arguments](https://code.google.com/p/closure-compiler/wiki/FAQ#What_are_the_recommended_Java_VM_command-line_options?), provide an array.
+ * **jvm** - `Array.<string>` Optional arguments for the JVM.  If this argument is absent (if the function is called with two arguments), `['-server', '-XX:+TieredCompilation']` will be used as JVM arguments.  To use [different arguments](https://github.com/google/closure-compiler/wiki/FAQ#what-are-the-recommended-java-vm-command-line-options), provide an array.
  * **callback** - `function(Error, string)` Called with the compiler output (or any compilation error).
 
 ## Configuration
