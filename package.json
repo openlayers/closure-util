@@ -33,7 +33,6 @@
     "gaze": "0.4.3",
     "acorn": "0.4.2",
     "socket.io": "0.9.16",
-    "config-chain": "1.1.8",
     "fs-extra": "0.8.1",
     "get-down": "0.3.0"
   },
