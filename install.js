@@ -1,8 +1,10 @@
 var path = require('path');
+var fs = require('fs');
 
 var download = require('get-down');
 var log = require('npmlog');
-var fse = require('fs-extra');
+var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
 
 var util = require('./lib/util');
 var config = require('./lib/config');
@@ -18,13 +20,13 @@ log.level = config.get('log_level');
 function maybeDownload(alias, url, callback) {
   var dir = util.getDependency(alias, url);
 
-  fse.exists(dir, function(exists) {
+  fs.exists(dir, function(exists) {
     if (exists) {
       log.verbose('install', 'Skipping ' + url);
       log.verbose('install', 'To force download delete ' + dir);
       callback(null, dir);
     } else {
-      fse.mkdirp(dir, function(err) {
+      mkdirp(dir, function(err) {
         if (err) {
           return callback(err);
         }
@@ -50,7 +52,7 @@ function maybeDownload(alias, url, callback) {
         });
 
         dl.on('error', function(err) {
-          fse.remove(dir, function(rimrafErr) {
+          rimraf(dir, function(rimrafErr) {
             if (rimrafErr) {
               log.error('install', rimrafErr);
             }
