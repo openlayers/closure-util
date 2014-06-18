@@ -10,8 +10,14 @@ Utilities for working with Closure Library projects.
 
 A script manager parses scripts for dependencies and watches those scripts for changes, updating dependencies as scripts are added, modified, or deleted.  A manager is used in conjunction with a [server](#server) for providing a debug loader during development.
 
+Main options:
+
  * **config.lib** - `string|Array.<string>` A list of [path patterns](https://github.com/isaacs/minimatch) for your library scripts (e.g. `'lib/**/*.js'`).  Note that path delimiters in these patterns should always be forward slashes (even on Windows).
  * **config.main** - `string|Array.<string>` Patterns for your main script(s).
+
+More advanced options:
+
+ * **config.ignoreRequires** - `string|undefined` A regular expression string. The manager will ignore matching `goog.require`'s that cannot be satisfied instead of throwing an exception. Optional.
 
 The manager is an [event emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) that emits the following events:
 
