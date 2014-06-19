@@ -17,14 +17,14 @@ var config = require('./lib/config');
 log.level = config.get('log_level');
 
 var compilerUrl = config.get('compiler_url');
-if (!compilerUrl) {
-  log.error('install', 'No compiler_url configured');
+if (typeof compilerUrl !== 'string') {
+  log.error('install', 'No compiler_url configured: ' + compilerUrl);
   process.exit(1);
 }
 
 var libraryUrl = config.get('library_url');
-if (!libraryUrl) {
-  log.error('install', 'No library_url configured');
+if (typeof libraryUrl !== 'string') {
+  log.error('install', 'No library_url configured: ' + libraryUrl);
   process.exit(1);
 }
 
