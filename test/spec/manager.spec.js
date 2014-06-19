@@ -210,6 +210,27 @@ describe('manager', function() {
         });
       });
 
+      it('ignores requires when ignoreRequires matches', function(done) {
+        var manager = new Manager({
+          closure: false,
+          cwd: fixtures,
+          lib: 'dependencies-ignoreRequires/**/*.js',
+          main: 'dependencies-ignoreRequires/main.js',
+          ignoreRequires: '^meat\\..*'
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'dependencies-ignoreRequires', 'main.js'));
+          var names = dependencies.map(function(s) {
+            return path.basename(s.name);
+          });
+          assert.deepEqual(names,
+              ['base.js', 'carrot.js', 'eggplant.js', 'main.js']);
+          done();
+        });
+      });
+
     });
 
   });
