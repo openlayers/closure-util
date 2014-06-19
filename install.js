@@ -16,6 +16,18 @@ var config = require('./lib/config');
  */
 log.level = config.get('log_level');
 
+var compilerUrl = config.get('compiler_url');
+if (typeof compilerUrl !== 'string') {
+  log.error('install', 'No compiler_url configured: ' + compilerUrl);
+  process.exit(1);
+}
+
+var libraryUrl = config.get('library_url');
+if (typeof libraryUrl !== 'string') {
+  log.error('install', 'No library_url configured: ' + libraryUrl);
+  process.exit(1);
+}
+
 
 function maybeDownload(alias, url, callback) {
   var dir = util.getDependency(alias, url);
@@ -65,14 +77,14 @@ function maybeDownload(alias, url, callback) {
 
 }
 
-maybeDownload('compiler', config.get('compiler_url'), function(err, dir) {
+maybeDownload('compiler', compilerUrl, function(err, dir) {
   if (err) {
     log.error('install', err.message);
     return process.exit(1);
   }
 });
 
-maybeDownload('library', config.get('library_url'), function(err, dir) {
+maybeDownload('library', libraryUrl, function(err, dir) {
   if (err) {
     log.error('install', err.message);
     return process.exit(1);
