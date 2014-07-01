@@ -22,17 +22,17 @@ Options for the Closure Compiler:
                                           hierarchy. Your main script.
  --common_js_module_path_prefix VAL     : Path prefix to be removed from
                                           CommonJS module names.
- --compilation_level [WHITESPACE_ONLY   : Specifies the compilation level to
- | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTI : use. Options: WHITESPACE_ONLY,
- MIZATIONS]                             : SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZ
-                                          ATIONS
- --create_name_map_files                : If true, variable renaming and
-                                          property renaming map files will be
-                                          produced as {binary name}_vars_map.out
-                                          and {binary name}_props_map.out. Note
-                                          that this flag cannot be used in
-                                          conjunction with either variableMapOut
-                                          putFile or property_map_output_file
+ --compilation_level (-O) VAL           : Specifies the compilation level to
+                                          use. Options: WHITESPACE_ONLY,
+                                          SIMPLE, ADVANCED
+ --create_renaming_reports              : If true, variable renaming and
+                                          property renaming report files will
+                                          be produced as {binary name}_vars_rena
+                                          ming_report.out and {binary name}_prop
+                                          s_renaming_report.out. Note that this
+                                          flag cannot be used in conjunction
+                                          with either variable_renaming_report
+                                          or property_renaming_report
  --create_source_map VAL                : If specified, a source map file
                                           mapping the generated source files
                                           back to the original source file will
@@ -63,7 +63,13 @@ Options for the Closure Compiler:
                                           marked with @export
  --help                                 : Displays this message
  --js VAL                               : The JavaScript filename. You may
-                                          specify multiple
+                                          specify multiple. The flag name is
+                                          optional, because args are interpreted
+                                          as files by default. You may also use
+                                          minimatch-style glob patterns. For
+                                          example, use --js='**.js' --js='!**_te
+                                          st.js' to recursively include all js
+                                          files that do not end in _test.js
  --js_output_file VAL                   : Primary output filename. If not
                                           specified, output is written to stdout
  --jscomp_error VAL                     : Make the named class of warnings an
@@ -76,13 +82,14 @@ Options for the Closure Compiler:
                                           externsValidation, fileoverviewTags,
                                           globalThis, internetExplorerChecks,
                                           invalidCasts, misplacedTypeAnnotation,
-                                          missingProperties, missingProvide,
-                                          missingRequire, missingReturn,nonStand
-                                          ardJsDocs, reportUnknownTypes,
+                                          missingGetCssName, missingProperties,
+                                          missingProvide, missingRequire,
+                                          missingReturn,newCheckTypes, nonStanda
+                                          rdJsDocs, reportUnknownTypes,
                                           suspiciousCode, strictModuleDepCheck,
                                           typeInvalidation, undefinedNames,
                                           undefinedVars, unknownDefines,
-                                          uselessCode, googBase, visibility
+                                          uselessCode, useOfGoogBase, visibility
  --jscomp_off VAL                       : Turn off the named class of warnings.
                                           Options:accessControls, ambiguousFunct
                                           ionDecl, checkEventfulObjectDisposal,
@@ -93,13 +100,14 @@ Options for the Closure Compiler:
                                           externsValidation, fileoverviewTags,
                                           globalThis, internetExplorerChecks,
                                           invalidCasts, misplacedTypeAnnotation,
-                                          missingProperties, missingProvide,
-                                          missingRequire, missingReturn,nonStand
-                                          ardJsDocs, reportUnknownTypes,
+                                          missingGetCssName, missingProperties,
+                                          missingProvide, missingRequire,
+                                          missingReturn,newCheckTypes, nonStanda
+                                          rdJsDocs, reportUnknownTypes,
                                           suspiciousCode, strictModuleDepCheck,
                                           typeInvalidation, undefinedNames,
                                           undefinedVars, unknownDefines,
-                                          uselessCode, googBase, visibility
+                                          uselessCode, useOfGoogBase, visibility
  --jscomp_warning VAL                   : Make the named class of warnings a
                                           normal warning. Options:accessControls
                                           , ambiguousFunctionDecl, checkEventful
@@ -110,18 +118,23 @@ Options for the Closure Compiler:
                                           es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
                                           internetExplorerChecks, invalidCasts,
-                                          misplacedTypeAnnotation, missingProper
-                                          ties, missingProvide, missingRequire,
-                                          missingReturn,nonStandardJsDocs,
-                                          reportUnknownTypes, suspiciousCode,
-                                          strictModuleDepCheck, typeInvalidation
-                                          , undefinedNames, undefinedVars,
-                                          unknownDefines, uselessCode, googBase,
-                                          visibility
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,newCh
+                                          eckTypes, nonStandardJsDocs, reportUnk
+                                          nownTypes, suspiciousCode, strictModul
+                                          eDepCheck, typeInvalidation, undefined
+                                          Names, undefinedVars, unknownDefines,
+                                          uselessCode, useOfGoogBase, visibility
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
                                           (default), ECMASCRIPT5, ECMASCRIPT5_ST
                                           RICT
+ --language_out VAL                     : Sets what language spec the output
+                                          should conform to.  If omitted,
+                                          defaults to the value of language_in.
+                                          Options: ECMASCRIPT3, ECMASCRIPT5,
+                                          ECMASCRIPT5_STRICT
  --logging_level VAL                    : The logging level (standard java.util.
                                           logging.Level values) for Compiler
                                           progress. Does not control errors or
@@ -185,6 +198,10 @@ Options for the Closure Compiler:
                                           token %output%. Use marker token
                                           %output|jsstring% to do js string
                                           escaping on the output.
+ --output_wrapper_file VAL              : Loads the specified file and passes
+                                          the file contents to the --output_wrap
+                                          per flag, replacing the value if it
+                                          exists.
  --print_ast                            : Prints a dot file describing the
                                           internal abstract syntax tree and
                                           exits
@@ -200,15 +217,15 @@ Options for the Closure Compiler:
  --process_jquery_primitives            : Processes built-ins from the Jquery
                                           library, such as jQuery.fn and
                                           jQuery.extend()
- --property_map_input_file VAL          : File containing the serialized
-                                          version of the property renaming map
-                                          produced by a previous compilation
- --property_map_output_file VAL         : File where the serialized version of
+ --property_renaming_report VAL         : File where the serialized version of
                                           the property renaming map produced
                                           should be saved
  --source_map_format [DEFAULT | V3]     : The source map format to produce.
                                           Options are V3 and DEFAULT, which are
                                           equivalent.
+ --source_map_location_mapping VAL      : Source map location mapping separated
+                                          by a '|' (i.e. filesystem-path|webserv
+                                          er-path)
  --summary_detail_level N               : Controls how detailed the compilation
                                           summary is. Values: 0 (never print
                                           summary), 1 (print summary only if
@@ -239,15 +256,12 @@ Options for the Closure Compiler:
                                           information.  Inaccurate type
                                           annotations may result in incorrect
                                           results.
- --variable_map_input_file VAL          : File containing the serialized
-                                          version of the variable renaming map
-                                          produced by a previous compilation
- --variable_map_output_file VAL         : File where the serialized version of
+ --variable_renaming_report VAL         : File where the serialized version of
                                           the variable renaming map produced
                                           should be saved
  --version                              : Prints the compiler version to stderr.
- --warning_level [QUIET | DEFAULT |     : Specifies the warning level to use.
- VERBOSE]                               : Options: QUIET, DEFAULT, VERBOSE
+ --warning_level (-W) [QUIET | DEFAULT  : Specifies the warning level to use.
+ | VERBOSE]                             : Options: QUIET, DEFAULT, VERBOSE
  --warnings_whitelist_file VAL          : A file containing warnings to
                                           suppress. Each line should be of the
                                           form
@@ -256,4 +270,4 @@ Options for the Closure Compiler:
 
 
 
-Current for http://dl.google.com/closure-compiler/compiler-20140407.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140625.zip
