@@ -80,15 +80,15 @@ Options for the Closure Compiler:
                                           , const, constantProperty, deprecated,
                                           duplicateMessage, es3, es5Strict,
                                           externsValidation, fileoverviewTags,
-                                          globalThis, internetExplorerChecks,
-                                          invalidCasts, misplacedTypeAnnotation,
-                                          missingGetCssName, missingProperties,
-                                          missingProvide, missingRequire,
-                                          missingReturn,newCheckTypes, nonStanda
-                                          rdJsDocs, reportUnknownTypes,
-                                          suspiciousCode, strictModuleDepCheck,
-                                          typeInvalidation, undefinedNames,
-                                          undefinedVars, unknownDefines,
+                                          globalThis, inferredConstCheck,
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,newCh
+                                          eckTypes, nonStandardJsDocs, reportUnk
+                                          nownTypes, suspiciousCode, strictModul
+                                          eDepCheck, typeInvalidation, undefined
+                                          Names, undefinedVars, unknownDefines,
                                           uselessCode, useOfGoogBase, visibility
  --jscomp_off VAL                       : Turn off the named class of warnings.
                                           Options:accessControls, ambiguousFunct
@@ -98,15 +98,15 @@ Options for the Closure Compiler:
                                           constantProperty, deprecated,
                                           duplicateMessage, es3, es5Strict,
                                           externsValidation, fileoverviewTags,
-                                          globalThis, internetExplorerChecks,
-                                          invalidCasts, misplacedTypeAnnotation,
-                                          missingGetCssName, missingProperties,
-                                          missingProvide, missingRequire,
-                                          missingReturn,newCheckTypes, nonStanda
-                                          rdJsDocs, reportUnknownTypes,
-                                          suspiciousCode, strictModuleDepCheck,
-                                          typeInvalidation, undefinedNames,
-                                          undefinedVars, unknownDefines,
+                                          globalThis, inferredConstCheck,
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,newCh
+                                          eckTypes, nonStandardJsDocs, reportUnk
+                                          nownTypes, suspiciousCode, strictModul
+                                          eDepCheck, typeInvalidation, undefined
+                                          Names, undefinedVars, unknownDefines,
                                           uselessCode, useOfGoogBase, visibility
  --jscomp_warning VAL                   : Make the named class of warnings a
                                           normal warning. Options:accessControls
@@ -117,14 +117,15 @@ Options for the Closure Compiler:
                                           deprecated, duplicateMessage, es3,
                                           es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
-                                          internetExplorerChecks, invalidCasts,
-                                          misplacedTypeAnnotation, missingGetCss
-                                          Name, missingProperties, missingProvid
-                                          e, missingRequire, missingReturn,newCh
-                                          eckTypes, nonStandardJsDocs, reportUnk
-                                          nownTypes, suspiciousCode, strictModul
-                                          eDepCheck, typeInvalidation, undefined
-                                          Names, undefinedVars, unknownDefines,
+                                          inferredConstCheck, internetExplorerCh
+                                          ecks, invalidCasts, misplacedTypeAnnot
+                                          ation, missingGetCssName, missingPrope
+                                          rties, missingProvide, missingRequire,
+                                          missingReturn,newCheckTypes, nonStanda
+                                          rdJsDocs, reportUnknownTypes,
+                                          suspiciousCode, strictModuleDepCheck,
+                                          typeInvalidation, undefinedNames,
+                                          undefinedVars, unknownDefines,
                                           uselessCode, useOfGoogBase, visibility
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
@@ -259,7 +260,7 @@ Options for the Closure Compiler:
  --variable_renaming_report VAL         : File where the serialized version of
                                           the variable renaming map produced
                                           should be saved
- --version                              : Prints the compiler version to stderr.
+ --version                              : Prints the compiler version to stdout.
  --warning_level (-W) [QUIET | DEFAULT  : Specifies the warning level to use.
  | VERBOSE]                             : Options: QUIET, DEFAULT, VERBOSE
  --warnings_whitelist_file VAL          : A file containing warnings to
@@ -270,4 +271,4 @@ Options for the Closure Compiler:
 
 
 
-Current for http://dl.google.com/closure-compiler/compiler-20140625.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140730.zip
