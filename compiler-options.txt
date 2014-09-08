@@ -221,6 +221,8 @@ Options for the Closure Compiler:
  --property_renaming_report VAL         : File where the serialized version of
                                           the property renaming map produced
                                           should be saved
+ --rewrite_es6_modules                  : Rewrite ES6 modules to a concatenable
+                                          form.
  --source_map_format [DEFAULT | V3]     : The source map format to produce.
                                           Options are V3 and DEFAULT, which are
                                           equivalent.
@@ -270,5 +272,4 @@ Options for the Closure Compiler:
                                           escription>
 
 
-
-Current for http://dl.google.com/closure-compiler/compiler-20140730.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140814.zip
