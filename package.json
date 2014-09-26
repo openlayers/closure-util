@@ -35,7 +35,8 @@
     "npmlog": "0.0.6",
     "rimraf": "2.2.8",
     "send": "0.9.1",
-    "socket.io": "0.9.16"
+    "socket.io": "0.9.16",
+    "nomnom": "~1.8.0"
   },
   "devDependencies": {
     "chai": "~1.8.1",
@@ -46,8 +47,11 @@
     "grunt-contrib-watch": "~0.6.1"
   },
   "scripts": {
-    "install": "node install.js",
+    "postinstall": "node ./bin/closure-util.js update",
     "test": "grunt test",
     "start": "grunt test watch"
+  },
+  "bin": {
+    "closure-util": "./bin/closure-util.js"
   }
 }
