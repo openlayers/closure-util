@@ -70,7 +70,7 @@ The `compile` function drives the Closure Compiler.
  * **options.jvm** - `Array.<string>` Optional arguments for the JVM.  If this argument is absent (if the function is called with two arguments), `['-server', '-XX:+TieredCompilation']` will be used as JVM arguments.  To use [different arguments](https://github.com/google/closure-compiler/wiki/FAQ#what-are-the-recommended-java-vm-command-line-options), provide an array.
  * **callback** - `function(Error, string)` Called with the compiler output (or any compilation error).
 
-## Configuration
+## <a id="configuration">Configuration</a>
 
 The `closure-util` package downloads the Closure Compiler and Closure Library when installed.  To use a different version of these resources, you can provide some basic configuration options before running `npm install`.  Your configuration options can come from a number of different sources.  The most straightforward way is to include a `closure-util.json` file in your project.  You can also provide configuration options via environment variables.  Environment variables have the `closure_` prefix in front of the options described below (e.g. `closure_log_level` to specify the `log_level` option).
 
@@ -78,13 +78,15 @@ Available configuration options (see `default-config.json` for default values):
 
  * `compiler_url` - URL for the compiler zip archive (e.g. `http://dl.google.com/closure-compiler/compiler-latest.zip`).
  * `library_url` - URL for the Closure Library zip archive (e.g. `https://github.com/google/closure-library/archive/master.zip`).
- * `log_level` - Logging level.  Allowed values are `silly`, `verbose`, `info`, `warn`, and `error` (default is `info`).
 
-Environment variables are given precedence over `closure-util.json` values.  For example, the following would set the logging level for the install regardless of the default or anything found in `closure-util.json`:
+## CLI
 
-```
-closure_log_level=verbose npm install
-```
+The `closure-util` command line utility allows you to update (or install) specific versions of the Closure Compiler or Closure Library for use with your project.  See the [configuration](#configuration) section above for information on how to configure URLs for specific versions of the Compiler or Library.  The `closure-util` utility will look for this configuration when executing one of the commands below.
+
+ * `closure-util update` - Update both the Compiler and Library.
+ * `closure-util update-compiler` - Update the Compiler.
+ * `closure-util update-library` - Update the Library.
+ * `closure-util --help` - Display command usage and options.
 
 ## Development
 
