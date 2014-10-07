@@ -25,6 +25,8 @@ Options for the Closure Compiler:
  --compilation_level (-O) VAL           : Specifies the compilation level to
                                           use. Options: WHITESPACE_ONLY,
                                           SIMPLE, ADVANCED
+ --conformance_configs VAL              : A list of JS Conformance configuration
+                                          s in text protocol buffer format.
  --create_renaming_reports              : If true, variable renaming and
                                           property renaming report files will
                                           be produced as {binary name}_vars_rena
@@ -61,7 +63,8 @@ Options for the Closure Compiler:
                                           PRINT_INPUT_DELIMITER, SINGLE_QUOTES
  --generate_exports                     : Generates export code for those
                                           marked with @export
- --help                                 : Displays this message
+ --help                                 : Displays this message on stdout and
+                                          exit
  --js VAL                               : The JavaScript filename. You may
                                           specify multiple. The flag name is
                                           optional, because args are interpreted
@@ -130,7 +133,8 @@ Options for the Closure Compiler:
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
                                           (default), ECMASCRIPT5, ECMASCRIPT5_ST
-                                          RICT
+                                          RICT, ECMASCRIPT6 (experimental),
+                                          ECMASCRIPT6_STRICT (experimental)
  --language_out VAL                     : Sets what language spec the output
                                           should conform to.  If omitted,
                                           defaults to the value of language_in.
@@ -181,8 +185,8 @@ Options for the Closure Compiler:
                                           dependency of the entry points
                                           (specified by closure_entry_point).
                                           Files that do not provide dependencies
-                                          will be removed. This supersedesmanage
-                                          _closure_dependencies
+                                          will be removed. This supersedes
+                                          manage_closure_dependencies
  --output_manifest VAL                  : Prints out a list of all the files in
                                           the compilation. If --manage_closure_d
                                           ependencies is on, this will not
@@ -252,6 +256,8 @@ Options for the Closure Compiler:
                                           will use different message ids so
                                           that messages in different projects
                                           can have different translations.
+ --transpile_only                       : Run ES6 to ES3 transpilation only,
+                                          skip other passes.
  --use_only_custom_externs              : Specifies whether the default externs
                                           should be excluded
  --use_types_for_optimization           : Experimental: perform additional
@@ -262,7 +268,8 @@ Options for the Closure Compiler:
  --variable_renaming_report VAL         : File where the serialized version of
                                           the variable renaming map produced
                                           should be saved
- --version                              : Prints the compiler version to stdout.
+ --version                              : Prints the compiler version to stdout
+                                          and exit.
  --warning_level (-W) [QUIET | DEFAULT  : Specifies the warning level to use.
  | VERBOSE]                             : Options: QUIET, DEFAULT, VERBOSE
  --warnings_whitelist_file VAL          : A file containing warnings to
@@ -272,4 +279,4 @@ Options for the Closure Compiler:
                                           escription>
 
 
-Current for http://dl.google.com/closure-compiler/compiler-20140814.zip
+Current for http://dl.google.com/closure-compiler/compiler-20140923.zip
