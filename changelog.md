@@ -1,3 +1,8 @@
+# v1.1.0
+
+* Upgrade closure compiler version (v20140923) (#40 @fredj)
+* Use options for configuring root. (#39 @gingerik)
+
 # v1.0.0
 
 * Provide a command line interface for updating deps. (#38 @tschaub)
