@@ -12,10 +12,10 @@ describe('scripts', function() {
 
     describe('constructor', function() {
       it('creates a Script instance', function() {
-        var s = new scripts.Script({name: 'foo', source: 'bar'});
+        var s = new scripts.Script({path: '/foo', source: 'bar'});
 
         assert.instanceOf(s, scripts.Script);
-        assert.equal(s.name, 'foo');
+        assert.equal(s.path, '/foo');
         assert.equal(s.source, 'bar');
       });
     });
