@@ -80,7 +80,8 @@ Options for the Closure Compiler:
                                           ambiguousFunctionDecl, checkEventfulOb
                                           jectDisposal, checkRegExp, checkStruct
                                           DictInheritance, checkTypes, checkVars
-                                          , const, constantProperty, deprecated,
+                                          , conformanceViolations, const,
+                                          constantProperty, deprecated,
                                           duplicateMessage, es3, es5Strict,
                                           externsValidation, fileoverviewTags,
                                           globalThis, inferredConstCheck,
@@ -97,26 +98,8 @@ Options for the Closure Compiler:
                                           Options:accessControls, ambiguousFunct
                                           ionDecl, checkEventfulObjectDisposal,
                                           checkRegExp, checkStructDictInheritanc
-                                          e, checkTypes, checkVars, const,
-                                          constantProperty, deprecated,
-                                          duplicateMessage, es3, es5Strict,
-                                          externsValidation, fileoverviewTags,
-                                          globalThis, inferredConstCheck,
-                                          internetExplorerChecks, invalidCasts,
-                                          misplacedTypeAnnotation, missingGetCss
-                                          Name, missingProperties, missingProvid
-                                          e, missingRequire, missingReturn,newCh
-                                          eckTypes, nonStandardJsDocs, reportUnk
-                                          nownTypes, suspiciousCode, strictModul
-                                          eDepCheck, typeInvalidation, undefined
-                                          Names, undefinedVars, unknownDefines,
-                                          uselessCode, useOfGoogBase, visibility
- --jscomp_warning VAL                   : Make the named class of warnings a
-                                          normal warning. Options:accessControls
-                                          , ambiguousFunctionDecl, checkEventful
-                                          ObjectDisposal, checkRegExp, checkStru
-                                          ctDictInheritance, checkTypes,
-                                          checkVars, const, constantProperty,
+                                          e, checkTypes, checkVars, conformanceV
+                                          iolations, const, constantProperty,
                                           deprecated, duplicateMessage, es3,
                                           es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
@@ -129,6 +112,25 @@ Options for the Closure Compiler:
                                           suspiciousCode, strictModuleDepCheck,
                                           typeInvalidation, undefinedNames,
                                           undefinedVars, unknownDefines,
+                                          uselessCode, useOfGoogBase, visibility
+ --jscomp_warning VAL                   : Make the named class of warnings a
+                                          normal warning. Options:accessControls
+                                          , ambiguousFunctionDecl, checkEventful
+                                          ObjectDisposal, checkRegExp, checkStru
+                                          ctDictInheritance, checkTypes,
+                                          checkVars, conformanceViolations,
+                                          const, constantProperty, deprecated,
+                                          duplicateMessage, es3, es5Strict,
+                                          externsValidation, fileoverviewTags,
+                                          globalThis, inferredConstCheck,
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,newCh
+                                          eckTypes, nonStandardJsDocs, reportUnk
+                                          nownTypes, suspiciousCode, strictModul
+                                          eDepCheck, typeInvalidation, undefined
+                                          Names, undefinedVars, unknownDefines,
                                           uselessCode, useOfGoogBase, visibility
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
@@ -278,5 +280,4 @@ Options for the Closure Compiler:
                                           <file-name>:<line-number>?  <warning-d
                                           escription>
 
-
-Current for http://dl.google.com/closure-compiler/compiler-20140923.zip
+Current for http://dl.google.com/closure-compiler/compiler-20141120.zip
