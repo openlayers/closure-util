@@ -1,3 +1,7 @@
+# v1.2.0
+
+* Upgrade closure compiler version (v20141120) (#43 @fredj)
+
 # v1.1.0
 
 * Upgrade closure compiler version (v20140923) (#40 @fredj)
