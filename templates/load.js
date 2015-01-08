@@ -28,7 +28,7 @@
         alert(error.message);
       }
     });
-    socket.on('update', function(filename) {
+    socket.on('update', function(filepath) {
       global.location.reload();
     });
     if (load) {

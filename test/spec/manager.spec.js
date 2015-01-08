@@ -99,10 +99,10 @@ describe('manager', function() {
         manager.on('error', done);
         manager.on('ready', function() {
           var dependencies = manager.getDependencies();
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'food.js', 'fruit.js', 'banana.js']);
           done();
         });
@@ -119,10 +119,10 @@ describe('manager', function() {
         manager.on('ready', function() {
           var dependencies = manager.getDependencies(
               path.join(fixtures, 'dependencies-main', 'main-car.js'));
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
           done();
         });
@@ -139,10 +139,10 @@ describe('manager', function() {
         manager.on('ready', function() {
           var dependencies = manager.getDependencies(
               path.join(fixtures, 'dependencies-main', 'main-boat.js'));
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
           done();
         });
@@ -158,16 +158,16 @@ describe('manager', function() {
         manager.on('error', done);
         manager.on('ready', function() {
           var dependencies = manager.getDependencies();
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names.slice(0, 3),
+          assert.deepEqual(paths.slice(0, 3),
               ['base.js', 'fuel.js', 'vehicle.js']);
-          assert.include(names, 'boat.js');
-          assert.include(names, 'car.js');
-          assert.include(names, 'truck.js');
-          assert.notInclude(names, 'main-boat.js');
-          assert.notInclude(names, 'main-car.js');
+          assert.include(paths, 'boat.js');
+          assert.include(paths, 'car.js');
+          assert.include(paths, 'truck.js');
+          assert.notInclude(paths, 'main-boat.js');
+          assert.notInclude(paths, 'main-car.js');
           done();
         });
       });
@@ -181,10 +181,10 @@ describe('manager', function() {
         manager.on('error', done);
         manager.on('ready', function() {
           var dependencies = manager.getDependencies();
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'parent.js', 'child.js']);
           done();
         });
@@ -201,10 +201,10 @@ describe('manager', function() {
         manager.on('ready', function() {
           var dependencies = manager.getDependencies(
               path.join(fixtures, 'adds-deps', 'main.js'));
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'math.js', 'main.js', 'deps.js']);
           done();
         });
@@ -222,10 +222,10 @@ describe('manager', function() {
         manager.on('ready', function() {
           var dependencies = manager.getDependencies(
               path.join(fixtures, 'dependencies-ignoreRequires', 'main.js'));
-          var names = dependencies.map(function(s) {
-            return path.basename(s.name);
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
           });
-          assert.deepEqual(names,
+          assert.deepEqual(paths,
               ['base.js', 'carrot.js', 'eggplant.js', 'main.js']);
           done();
         });
