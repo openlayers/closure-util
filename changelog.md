@@ -1,3 +1,7 @@
+# v1.3.0
+
+* Address windows issues (#42 @tschaub)
+
 # v1.2.0
 
 * Upgrade closure compiler version (v20141120) (#43 @fredj)
