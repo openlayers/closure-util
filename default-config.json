@@ -1,5 +1,5 @@
 {
-  "compiler_url": "http://dl.google.com/closure-compiler/compiler-20141120.zip",
+  "compiler_url": "http://dl.google.com/closure-compiler/compiler-20150126.zip",
   "library_url": "https://github.com/google/closure-library/archive/97e8a0c0fc7238a56cc4dacd4a96fd4c0735b992.zip",
   "log_level": "info"
 }
