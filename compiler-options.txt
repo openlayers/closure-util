@@ -136,12 +136,14 @@ Options for the Closure Compiler:
                                           sources conform. Options: ECMASCRIPT3
                                           (default), ECMASCRIPT5, ECMASCRIPT5_ST
                                           RICT, ECMASCRIPT6 (experimental),
-                                          ECMASCRIPT6_STRICT (experimental)
+                                          ECMASCRIPT6_STRICT (experimental),
+                                          ECMASCRIPT6_TYPED (experimental)
  --language_out VAL                     : Sets what language spec the output
                                           should conform to.  If omitted,
                                           defaults to the value of language_in.
                                           Options: ECMASCRIPT3, ECMASCRIPT5,
-                                          ECMASCRIPT5_STRICT
+                                          ECMASCRIPT5_STRICTECMASCRIPT6_TYPED
+                                          (experimental)
  --logging_level VAL                    : The logging level (standard java.util.
                                           logging.Level values) for Compiler
                                           progress. Does not control errors or
@@ -165,8 +167,11 @@ Options for the Closure Compiler:
                                           listed in the corresponding order.
                                           Where --module flags occur in
                                           relation to --js flags is unimportant.
-                                          Provide the value 'auto' to trigger
-                                          module creation from CommonJSmodules.
+                                          <num-js-files> may be set to 'auto'
+                                          for the first module if it has no
+                                          dependencies. Provide the value
+                                          'auto' to trigger module creation
+                                          from CommonJSmodules.
  --module_output_path_prefix VAL        : Prefix for filenames of compiled JS
                                           modules. <module-name>.js will be
                                           appended to this prefix. Directories
@@ -218,7 +223,7 @@ Options for the Closure Compiler:
  --process_closure_primitives           : Processes built-ins from the Closure
                                           library, such as goog.require(),
                                           goog.provide(), and goog.exportSymbol(
-                                          )
+                                          ). True by default.
  --process_common_js_modules            : Process CommonJS modules to a
                                           concatenable form.
  --process_jquery_primitives            : Processes built-ins from the Jquery
@@ -227,6 +232,9 @@ Options for the Closure Compiler:
  --property_renaming_report VAL         : File where the serialized version of
                                           the property renaming map produced
                                           should be saved
+ --rename_prefix_namespace VAL          : Specifies the name of an object that
+                                          will be used to store all non-extern
+                                          globals
  --rewrite_es6_modules                  : Rewrite ES6 modules to a concatenable
                                           form.
  --source_map_format [DEFAULT | V3]     : The source map format to produce.
@@ -264,9 +272,8 @@ Options for the Closure Compiler:
                                           should be excluded
  --use_types_for_optimization           : Experimental: perform additional
                                           optimizations based on available
-                                          information.  Inaccurate type
-                                          annotations may result in incorrect
-                                          results.
+                                          information. Inaccurate type annotatio
+                                          ns may result in incorrect results.
  --variable_renaming_report VAL         : File where the serialized version of
                                           the variable renaming map produced
                                           should be saved
@@ -280,4 +287,4 @@ Options for the Closure Compiler:
                                           <file-name>:<line-number>?  <warning-d
                                           escription>
 
-Current for http://dl.google.com/closure-compiler/compiler-20141120.zip
+Current for http://dl.google.com/closure-compiler/compiler-20150126.zip
