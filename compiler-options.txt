@@ -1,6 +1,12 @@
 Options for the Closure Compiler:
 
  --accept_const_keyword                 : Allows usage of const keyword.
+ --allow_es6_out                        : Experimental: Allows ES6 language_out,
+                                          for compiling ES6 to ES6 as well as
+                                          transpiling to ES6 from lower
+                                          versions. Enabling this flag may
+                                          cause the compiler to crash or
+                                          produce incorrect output.
  --angular_pass                         : Generate $inject properties for
                                           AngularJS for functions annotated
                                           with @ngInject
@@ -51,6 +57,8 @@ Options for the Closure Compiler:
                                           ed string that contains no single
                                           quotes. If [=<val>] is omitted, the
                                           variable is marked true
+ --export_local_property_definitions    : Generates export code for local
+                                          properties marked with @export
  --externs VAL                          : The file containing JavaScript
                                           externs. You may specify multiple
  --extra_annotation_name VAL            : A whitelist of tag names in JSDoc.
@@ -142,7 +150,7 @@ Options for the Closure Compiler:
                                           should conform to.  If omitted,
                                           defaults to the value of language_in.
                                           Options: ECMASCRIPT3, ECMASCRIPT5,
-                                          ECMASCRIPT5_STRICTECMASCRIPT6_TYPED
+                                          ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED
                                           (experimental)
  --logging_level VAL                    : The logging level (standard java.util.
                                           logging.Level values) for Compiler
@@ -235,11 +243,12 @@ Options for the Closure Compiler:
  --rename_prefix_namespace VAL          : Specifies the name of an object that
                                           will be used to store all non-extern
                                           globals
- --rewrite_es6_modules                  : Rewrite ES6 modules to a concatenable
-                                          form.
  --source_map_format [DEFAULT | V3]     : The source map format to produce.
                                           Options are V3 and DEFAULT, which are
                                           equivalent.
+ --source_map_input VAL                 : Source map locations for input files,
+                                          separated by a '|', (i.e. input-file-p
+                                          ath|input-source-map)
  --source_map_location_mapping VAL      : Source map location mapping separated
                                           by a '|' (i.e. filesystem-path|webserv
                                           er-path)
@@ -270,10 +279,10 @@ Options for the Closure Compiler:
                                           skip other passes.
  --use_only_custom_externs              : Specifies whether the default externs
                                           should be excluded
- --use_types_for_optimization           : Experimental: perform additional
-                                          optimizations based on available
-                                          information. Inaccurate type annotatio
-                                          ns may result in incorrect results.
+ --use_types_for_optimization           : Enable or disable the optimizations
+                                          based on available type information.
+                                          Inaccurate type annotations may
+                                          result in incorrect results.
  --variable_renaming_report VAL         : File where the serialized version of
                                           the variable renaming map produced
                                           should be saved
@@ -287,4 +296,4 @@ Options for the Closure Compiler:
                                           <file-name>:<line-number>?  <warning-d
                                           escription>
 
-Current for http://dl.google.com/closure-compiler/compiler-20150126.zip
+Current for http://dl.google.com/closure-compiler/compiler-20150315.zip
