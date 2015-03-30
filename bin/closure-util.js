@@ -3,6 +3,7 @@ var log = require('npmlog');
 var parser = require('nomnom');
 
 var deps = require('../lib/deps');
+var build = require('../lib/build');
 
 parser.options({
   loglevel: {
@@ -57,6 +58,29 @@ parser.command('update').callback(function() {
     }
   });
 }).help('Update both the Library and the Compiler');
+
+parser.command('build')
+  .option('config', {
+    position: 1,
+    required: true,
+    help: 'Path to JSON config file'
+  })
+  .option('output', {
+    position: 2,
+    required: true,
+    help: 'Output file path'
+  })
+  .callback(function(opts) {
+    var configFile = opts.config;
+    var outputFile = opts.output;
+    build(configFile, outputFile, function(err) {
+      if (err) {
+        log.error('closure-util', err.message);
+        process.exit(1);
+      }
+      process.exit(0);
+    });
+  }).help('Build with Closure Compiler');
 
 var options = parser.parse();
 
