@@ -81,21 +81,24 @@ Available configuration options (see `default-config.json` for default values):
 
 ## CLI
 
-The `closure-util` command line utility provides commands for updating (or installing) specific versions of the Closure Compiler and Closure Library for use with your project, and a command for building your project using the Closure Compiler.
+The `closure-util` command line utility provides `update` commands for updating (or installing) specific versions of the Closure Compiler and Closure Library for use with your project, a `build` command for building your project using the Closure Compiler, and a `serve` command for starting a development server for your project.
 
  * `closure-util update` - Update both the Compiler and Library.
  * `closure-util update-compiler` - Update the Compiler.
  * `closure-util update-library` - Update the Library.
  * `closure-util build` - Build a JavaScript application.
+ * `closure-util serve` - Start a development server.
  * `closure-util --help` - Display command usage and options.
 
 See the [configuration](#configuration) section above for information on how to configure URLs for specific versions of the Compiler or Library.  The `closure-util` utility will look for this configuration when executing one of the `update`, `update-compiler` or `update-library` commands.
 
 This is how the `build` command is used:
 
-    closure-util build build.json app.min.js
+    closure-util build config.json app.min.js
 
-where `build.json` is a build config file and `app.min.js` in the output file including the compiled code. As an example for a build config file see the [`build-config.json`](test/fixtures/build-config.json) file used in the `closure-util` tests.
+where `config.json` is a build config file and `app.min.js` in the output file including the compiled code. As an example for a build config file see the [`config.json`](test/fixtures/config.json) file used in the `closure-util` tests.
+
+This is how the `serve` command is used:
 
 ## Development
 

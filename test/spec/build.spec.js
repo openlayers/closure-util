@@ -15,7 +15,7 @@ describe('build', function() {
     // this test runs the compiler, increase the timeout value
     this.timeout(30000);
     var outputFile = temp.path({suffix: '.js'});
-    var configFile = path.join(fixtures, 'build-config.json');
+    var configFile = path.join(fixtures, 'config.json');
     build(configFile, outputFile, function(err) {
       assert.isNull(err);
       fs.exists(outputFile, function(exists) {
