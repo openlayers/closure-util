@@ -81,12 +81,21 @@ Available configuration options (see `default-config.json` for default values):
 
 ## CLI
 
-The `closure-util` command line utility allows you to update (or install) specific versions of the Closure Compiler or Closure Library for use with your project.  See the [configuration](#configuration) section above for information on how to configure URLs for specific versions of the Compiler or Library.  The `closure-util` utility will look for this configuration when executing one of the commands below.
+The `closure-util` command line utility provides commands for updating (or installing) specific versions of the Closure Compiler and Closure Library for use with your project, and a command for building your project using the Closure Compiler.
 
  * `closure-util update` - Update both the Compiler and Library.
  * `closure-util update-compiler` - Update the Compiler.
  * `closure-util update-library` - Update the Library.
+ * `closure-util build` - Build a JavaScript application.
  * `closure-util --help` - Display command usage and options.
+
+See the [configuration](#configuration) section above for information on how to configure URLs for specific versions of the Compiler or Library.  The `closure-util` utility will look for this configuration when executing one of the `update`, `update-compiler` or `update-library` commands.
+
+This is how the `build` command is used:
+
+    closure-util build build.json app.min.js
+
+where `build.json` is a build config file and `app.min.js` in the output file including the compiled code. As an example for a build config file see the [`build-config.json`](test/fixtures/build-config.json) file used in the `closure-util` tests.
 
 ## Development
 
