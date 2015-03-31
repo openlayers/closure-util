@@ -46,7 +46,8 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-mocha-test": "~0.8.1",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "temp": "^0.8.1"
   },
   "scripts": {
     "postinstall": "node ./bin/closure-util.js update",

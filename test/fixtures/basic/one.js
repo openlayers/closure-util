@@ -23,7 +23,7 @@ basic.one.Class = function(things) {
 
 /**
  * Do something for each thing.
- * @param {function} fn Function to be called with each thing.
+ * @param {function()} fn Function to be called with each thing.
  */
 basic.one.Class.prototype.forEach = function(fn) {
   goog.array.forEach(this.things_, fn);
