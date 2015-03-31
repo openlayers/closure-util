@@ -96,9 +96,13 @@ This is how the `build` command is used:
 
     closure-util build config.json app.min.js
 
-where `config.json` is a build config file and `app.min.js` in the output file including the compiled code. As an example for a build config file see the [`config.json`](test/fixtures/config.json) file used in the `closure-util` tests.
+where `config.json` is a build config file and `app.min.js` in the output file including the compiled code. As an example for a build config file see the [`config.json`](test/fixtures/config.json) file used in the `closure-util` tests. The config file should include a `"lib"` and a `"compile"` sections.
 
 This is how the `serve` command is used:
+
+    closure-util serve config.json
+
+where `config.json` is a config file. You can look at the [`config.json`](test/fixtures/config.json) again. For the `serve` command the config file should include a `"lib"` and a `"serve"` sections.
 
 ## Development
 
