@@ -4,6 +4,7 @@ var parser = require('nomnom');
 
 var deps = require('../lib/deps');
 var build = require('../lib/build');
+var serve = require('../lib/serve');
 
 parser.options({
   loglevel: {
@@ -81,6 +82,22 @@ parser.command('build')
       process.exit(0);
     });
   }).help('Build with Closure Compiler');
+
+parser.command('serve')
+  .option('config', {
+    position: 1,
+    required: true,
+    help: 'Path to JSON config file'
+  })
+  .callback(function(opts) {
+    var configFile = opts.config;
+    serve(configFile, function(err) {
+      if (err) {
+        log.error('closure-util', err.message);
+        process.exit(1);
+      }
+    });
+  }).help('Start the development server');
 
 var options = parser.parse();
 
