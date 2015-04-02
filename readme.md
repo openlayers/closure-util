@@ -36,10 +36,10 @@ Create a development server providing a script loader and static assets.
 var closure = require('closure-util');
 
 var manager = new closure.Manager({
-  lib: ['path/to/app/src/**/*.js']
+  lib: ['path/to/app/src/**/*.js'],
   main: 'path/to/app/examples/*.js'
 });
-manager.on('error', function(e) {throw e});
+manager.on('error', function(e) { throw e; });
 manager.on('ready', function() {
   var server = new closure.Server({
     manager: manager,
