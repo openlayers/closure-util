@@ -59,5 +59,8 @@
     "warning_level": "VERBOSE",
     "output_wrapper": "(function(){%output%})();",
     "use_types_for_optimization": true
+  },
+  "serve": {
+    "port": 3001
   }
 }
