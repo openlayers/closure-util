@@ -13,14 +13,15 @@
 
   for (var i = 0, ii = paths.length; i < ii; ++i) {
     document.write(
-        '<script type="text/javascript" src="' + paths[i] + '"></script>');
+        '<script type="text/javascript" src="{{{ root }}}' +
+        paths[i] + '"></script>');
   }
 
 {{#if socket}}
 
   var load = global.onload;
   global.onload = function() {
-    var socket = io.connect('/');
+    var socket = io.connect('{{{ root }}}/');
     socket.on('error', function(error) {
       if (global.console) {
         console.error(error.message);
