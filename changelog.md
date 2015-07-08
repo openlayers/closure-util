@@ -1,3 +1,12 @@
+# v1.4.0
+
+* Add `serve` command (#53 @elemoine)
+* Add `build` command (#52 @elemoine)
+* Correct example (#55 @malaretv)
+* Dependency updates to work with Node 0.12 (#54 @malaretv)
+* Compiler updates (#46, #51 @fredj)
+* Library update (#50 @elemoine)
+
 # v1.3.0
 
 * Address windows issues (#42 @tschaub)
