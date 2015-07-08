@@ -1,3 +1,8 @@
+# v1.5.0
+
+* Use absolute URLs in script loader (#66 @tschaub)
+* Compiler updates (#60 @fredj)
+
 # v1.4.0
 
 * Add `serve` command (#53 @elemoine)
