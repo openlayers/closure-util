@@ -1,5 +1,3 @@
-Options for the Closure Compiler:
-
  --angular_pass                         : Generate $inject properties for
                                           AngularJS for functions annotated
                                           with @ngInject
@@ -52,6 +50,9 @@ Options for the Closure Compiler:
                                           ed string that contains no single
                                           quotes. If [=<val>] is omitted, the
                                           variable is marked true
+ --env [BROWSER | CUSTOM]               : Determines the set of builtin externs
+                                          to load. Options: BROWSER, CUSTOM.
+                                          Defaults to BROWSER.
  --export_local_property_definitions    : Generates export code for local
                                           properties marked with @export
  --externs VAL                          : The file containing JavaScript
@@ -83,49 +84,7 @@ Options for the Closure Compiler:
  --jscomp_error VAL                     : Make the named class of warnings an
                                           error. Options:accessControls,
                                           ambiguousFunctionDecl, checkEventfulOb
-                                          jectDisposal, checkRegExp, checkStruct
-                                          DictInheritance, checkTypes, checkVars
-                                          , conformanceViolations, const,
-                                          constantProperty, deprecated,
-                                          deprecatedAnnotations, duplicateMessag
-                                          e, es3, es5Strict, externsValidation,
-                                          fileoverviewTags, globalThis,
-                                          inferredConstCheck, internetExplorerCh
-                                          ecks, invalidCasts, misplacedTypeAnnot
-                                          ation, missingGetCssName, missingPrope
-                                          rties, missingProvide, missingRequire,
-                                          missingReturn,newCheckTypes, nonStanda
-                                          rdJsDocs, reportUnknownTypes,
-                                          suspiciousCode, strictModuleDepCheck,
-                                          typeInvalidation, undefinedNames,
-                                          undefinedVars, unknownDefines,
-                                          uselessCode, useOfGoogBase, visibility
-                                          . '*' adds all supported.
- --jscomp_off VAL                       : Turn off the named class of warnings.
-                                          Options:accessControls, ambiguousFunct
-                                          ionDecl, checkEventfulObjectDisposal,
-                                          checkRegExp, checkStructDictInheritanc
-                                          e, checkTypes, checkVars, conformanceV
-                                          iolations, const, constantProperty,
-                                          deprecated, deprecatedAnnotations,
-                                          duplicateMessage, es3, es5Strict,
-                                          externsValidation, fileoverviewTags,
-                                          globalThis, inferredConstCheck,
-                                          internetExplorerChecks, invalidCasts,
-                                          misplacedTypeAnnotation, missingGetCss
-                                          Name, missingProperties, missingProvid
-                                          e, missingRequire, missingReturn,newCh
-                                          eckTypes, nonStandardJsDocs, reportUnk
-                                          nownTypes, suspiciousCode, strictModul
-                                          eDepCheck, typeInvalidation, undefined
-                                          Names, undefinedVars, unknownDefines,
-                                          uselessCode, useOfGoogBase, visibility
-                                          . '*' adds all supported.
- --jscomp_warning VAL                   : Make the named class of warnings a
-                                          normal warning. Options:accessControls
-                                          , ambiguousFunctionDecl, checkEventful
-                                          ObjectDisposal, checkRegExp, checkStru
-                                          ctDictInheritance, checkTypes,
+                                          jectDisposal, checkRegExp, checkTypes,
                                           checkVars, conformanceViolations,
                                           const, constantProperty, deprecated,
                                           deprecatedAnnotations, duplicateMessag
@@ -135,13 +94,58 @@ Options for the Closure Compiler:
                                           ecks, invalidCasts, misplacedTypeAnnot
                                           ation, missingGetCssName, missingPrope
                                           rties, missingProvide, missingRequire,
-                                          missingReturn,newCheckTypes, nonStanda
-                                          rdJsDocs, reportUnknownTypes,
-                                          suspiciousCode, strictModuleDepCheck,
-                                          typeInvalidation, undefinedNames,
-                                          undefinedVars, unknownDefines,
-                                          uselessCode, useOfGoogBase, visibility
-                                          . '*' adds all supported.
+                                          missingReturn, msgDescriptionsnewCheck
+                                          Types, nonStandardJsDocs, reportUnknow
+                                          nTypes, suspiciousCode, strictModuleDe
+                                          pCheck, typeInvalidation, undefinedNam
+                                          es, undefinedVars, unknownDefines,
+                                          unnecessaryCasts, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
+ --jscomp_off VAL                       : Turn off the named class of warnings.
+                                          Options:accessControls, ambiguousFunct
+                                          ionDecl, checkEventfulObjectDisposal,
+                                          checkRegExp, checkTypes, checkVars,
+                                          conformanceViolations, const,
+                                          constantProperty, deprecated,
+                                          deprecatedAnnotations, duplicateMessag
+                                          e, es3, es5Strict, externsValidation,
+                                          fileoverviewTags, globalThis,
+                                          inferredConstCheck, internetExplorerCh
+                                          ecks, invalidCasts, misplacedTypeAnnot
+                                          ation, missingGetCssName, missingPrope
+                                          rties, missingProvide, missingRequire,
+                                          missingReturn, msgDescriptionsnewCheck
+                                          Types, nonStandardJsDocs, reportUnknow
+                                          nTypes, suspiciousCode, strictModuleDe
+                                          pCheck, typeInvalidation, undefinedNam
+                                          es, undefinedVars, unknownDefines,
+                                          unnecessaryCasts, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
+ --jscomp_warning VAL                   : Make the named class of warnings a
+                                          normal warning. Options:accessControls
+                                          , ambiguousFunctionDecl, checkEventful
+                                          ObjectDisposal, checkRegExp, checkType
+                                          s, checkVars, conformanceViolations,
+                                          const, constantProperty, deprecated,
+                                          deprecatedAnnotations, duplicateMessag
+                                          e, es3, es5Strict, externsValidation,
+                                          fileoverviewTags, globalThis,
+                                          inferredConstCheck, internetExplorerCh
+                                          ecks, invalidCasts, misplacedTypeAnnot
+                                          ation, missingGetCssName, missingPrope
+                                          rties, missingProvide, missingRequire,
+                                          missingReturn, msgDescriptionsnewCheck
+                                          Types, nonStandardJsDocs, reportUnknow
+                                          nTypes, suspiciousCode, strictModuleDe
+                                          pCheck, typeInvalidation, undefinedNam
+                                          es, undefinedVars, unknownDefines,
+                                          unnecessaryCasts, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
+ --jszip VAL                            : The JavaScript zip filename. You may
+                                          specify multiple.
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options: ECMASCRIPT3
                                           (default), ECMASCRIPT5, ECMASCRIPT5_ST
@@ -279,8 +283,6 @@ Options for the Closure Compiler:
                                           will use different message ids so
                                           that messages in different projects
                                           can have different translations.
- --use_only_custom_externs              : Specifies whether the default externs
-                                          should be excluded
  --use_types_for_optimization           : Enable or disable the optimizations
                                           based on available type information.
                                           Inaccurate type annotations may
@@ -297,6 +299,3 @@ Options for the Closure Compiler:
                                           form
                                           <file-name>:<line-number>?  <warning-d
                                           escription>
-
-
-Current for http://dl.google.com/closure-compiler/compiler-20150729.zip
