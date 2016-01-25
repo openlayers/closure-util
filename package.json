@@ -25,7 +25,7 @@
     "minimatch": "0.2.14",
     "mkdirp": "0.5.0",
     "nomnom": "~1.8.0",
-    "npmlog": "0.0.6",
+    "npmlog": "2.0.1",
     "rimraf": "2.5.1",
     "send": "0.13.1",
     "socket.io": "1.4.4",
