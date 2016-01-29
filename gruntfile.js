@@ -9,27 +9,9 @@ module.exports = function(grunt) {
   var libSrc = 'lib/**/*.js';
 
   grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      gruntfile: {
-        src: 'gruntfile.js'
-      },
-      test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: [testSrc, '!test/fixtures/**/*.*']
-      },
-      lib: {
-        src: libSrc
-      }
-    },
     mochaTest: {
       all: {
         options: {
