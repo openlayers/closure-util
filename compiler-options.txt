@@ -1,26 +1,23 @@
  --angular_pass                         : Generate $inject properties for
                                           AngularJS for functions annotated
                                           with @ngInject
+ --assume_function_wrapper              : Enable additional optimizations based
+                                          on the assumption that the output
+                                          will be wrapped with a function
+                                          wrapper.  This flag is used to
+                                          indicate that "global" declarations
+                                          will not actually be global but
+                                          instead isolated to the compilation
+                                          unit. This enables additional
+                                          optimizations.
  --charset VAL                          : Input and output charset for all
                                           files. By default, we accept UTF-8 as
                                           input and output US_ASCII
  --checks-only                          : Don't generate output. Run checks,
                                           but no compiler passes.
- --closure_entry_point VAL              : Entry points to the program. Must be
-                                          goog.provide'd symbols. Any goog.provi
-                                          de'd symbols that are not a transitive
-                                          dependency of the entry points will
-                                          be removed. Files without goog.provide
-                                          s, and their dependencies, will
-                                          always be left in. If any entry
-                                          points are specified, then the
-                                          manage_closure_dependencies option
-                                          will be set to true and all files
-                                          will be sorted in dependency order.
- --common_js_entry_module VAL           : Root of your common JS dependency
-                                          hierarchy. Your main script.
- --common_js_module_path_prefix VAL     : Path prefix to be removed from
-                                          CommonJS module names.
+ --closure_entry_point VAL              : Deprecated: use --entry_point.
+ --common_js_entry_module VAL           : Deprecated: use --entry_point.
+ --common_js_module_path_prefix VAL     : Deprecated: use --js_module_root.
  --compilation_level (-O) VAL           : Specifies the compilation level to
                                           use. Options: WHITESPACE_ONLY,
                                           SIMPLE, ADVANCED
@@ -52,6 +49,31 @@
                                           ed string that contains no single
                                           quotes. If [=<val>] is omitted, the
                                           variable is marked true
+ --dependency_mode [NONE | LOOSE |      : Specifies how the compiler should
+ STRICT]                                : determine the set and order of files
+                                          for a compilation. Options: NONE the
+                                          compiler will include all src files
+                                          in the order listed, STRICT files
+                                          will be included and sorted by
+                                          starting from namespaces or files
+                                          listed by the --entry_point flag -
+                                          files will only be included if they
+                                          are referenced by a goog.require or
+                                          CommonJS require or ES6 import, LOOSE
+                                          same as with STRICT but files which
+                                          do not goog.provide a namespace and
+                                          are not modules will be automatically
+                                          added as --entry_point entries.
+                                          Defaults to NONE.
+ --entry_point VAL                      : A file or namespace to use as the
+                                          starting point for determining which
+                                          src files to include in the compilatio
+                                          n. ES6 and CommonJS modules are
+                                          specified as file paths (without the
+                                          extension). Closure-library namespaces
+                                          are specified with a "goog:" prefix.
+                                          Example: --entry_point=goog:goog.Promi
+                                          se
  --env [BROWSER | CUSTOM]               : Determines the set of builtin externs
                                           to load. Options: BROWSER, CUSTOM.
                                           Defaults to BROWSER.
@@ -100,19 +122,19 @@
                                           deprecatedAnnotations, duplicateMessag
                                           e, es3, es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
-                                          inferredConstCheck, internetExplorerCh
-                                          ecks, invalidCasts, misplacedTypeAnnot
-                                          ation, missingGetCssName, missingPrope
-                                          rties, missingProvide, missingRequire,
-                                          missingReturn, msgDescriptions,
-                                          newCheckTypes, nonStandardJsDocs,
-                                          reportUnknownTypes, suspiciousCode,
-                                          strictModuleDepCheck, typeInvalidation
-                                          , undefinedNames, undefinedVars,
-                                          unknownDefines, unnecessaryCasts,
-                                          unusedLocalVariables, unusedPrivateMem
-                                          bers, uselessCode, useOfGoogBase,
-                                          visibility. '*' adds all supported.
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,
+                                          msgDescriptions, newCheckTypes,
+                                          nonStandardJsDocs, reportUnknownTypes,
+                                          suspiciousCode, strictModuleDepCheck,
+                                          typeInvalidation, undefinedNames,
+                                          undefinedVars, unknownDefines,
+                                          unnecessaryCasts, unusedLocalVariables
+                                          , unusedPrivateMembers, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
  --jscomp_off VAL                       : Turn off the named class of warnings.
                                           Options:accessControls, ambiguousFunct
                                           ionDecl, checkEventfulObjectDisposal,
@@ -122,19 +144,19 @@
                                           deprecatedAnnotations, duplicateMessag
                                           e, es3, es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
-                                          inferredConstCheck, internetExplorerCh
-                                          ecks, invalidCasts, misplacedTypeAnnot
-                                          ation, missingGetCssName, missingPrope
-                                          rties, missingProvide, missingRequire,
-                                          missingReturn, msgDescriptions,
-                                          newCheckTypes, nonStandardJsDocs,
-                                          reportUnknownTypes, suspiciousCode,
-                                          strictModuleDepCheck, typeInvalidation
-                                          , undefinedNames, undefinedVars,
-                                          unknownDefines, unnecessaryCasts,
-                                          unusedLocalVariables, unusedPrivateMem
-                                          bers, uselessCode, useOfGoogBase,
-                                          visibility. '*' adds all supported.
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,
+                                          msgDescriptions, newCheckTypes,
+                                          nonStandardJsDocs, reportUnknownTypes,
+                                          suspiciousCode, strictModuleDepCheck,
+                                          typeInvalidation, undefinedNames,
+                                          undefinedVars, unknownDefines,
+                                          unnecessaryCasts, unusedLocalVariables
+                                          , unusedPrivateMembers, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
  --jscomp_warning VAL                   : Make the named class of warnings a
                                           normal warning. Options:accessControls
                                           , ambiguousFunctionDecl, checkEventful
@@ -144,19 +166,19 @@
                                           deprecatedAnnotations, duplicateMessag
                                           e, es3, es5Strict, externsValidation,
                                           fileoverviewTags, globalThis,
-                                          inferredConstCheck, internetExplorerCh
-                                          ecks, invalidCasts, misplacedTypeAnnot
-                                          ation, missingGetCssName, missingPrope
-                                          rties, missingProvide, missingRequire,
-                                          missingReturn, msgDescriptions,
-                                          newCheckTypes, nonStandardJsDocs,
-                                          reportUnknownTypes, suspiciousCode,
-                                          strictModuleDepCheck, typeInvalidation
-                                          , undefinedNames, undefinedVars,
-                                          unknownDefines, unnecessaryCasts,
-                                          unusedLocalVariables, unusedPrivateMem
-                                          bers, uselessCode, useOfGoogBase,
-                                          visibility. '*' adds all supported.
+                                          internetExplorerChecks, invalidCasts,
+                                          misplacedTypeAnnotation, missingGetCss
+                                          Name, missingProperties, missingProvid
+                                          e, missingRequire, missingReturn,
+                                          msgDescriptions, newCheckTypes,
+                                          nonStandardJsDocs, reportUnknownTypes,
+                                          suspiciousCode, strictModuleDepCheck,
+                                          typeInvalidation, undefinedNames,
+                                          undefinedVars, unknownDefines,
+                                          unnecessaryCasts, unusedLocalVariables
+                                          , unusedPrivateMembers, uselessCode,
+                                          useOfGoogBase, visibility. '*' adds
+                                          all supported.
  --json_streams [NONE | IN | OUT |      : Specifies whether standard input and
  BOTH]                                  : output streams will be a JSON array
                                           of sources. Each source will be an
@@ -183,14 +205,8 @@
                                           progress. Does not control errors or
                                           warnings for the JavaScript code
                                           under compilation
- --manage_closure_dependencies          : Automatically sort dependencies so
-                                          that a file that goog.provides symbol
-                                          X will always come before a file that
-                                          goog.requires symbol X. If an input
-                                          provides symbols, and those symbols
-                                          are never required, then that input
-                                          will not be included in the compilatio
-                                          n.
+ --manage_closure_dependencies          : Deprecated: use --dependency_mode=LOOS
+                                          E.
  --module VAL                           : A JavaScript module specification.
                                           The format is <name>:<num-js-files>[:[
                                           <dep>,...][:]]]. Module names must be
@@ -222,21 +238,20 @@
                                           name of the module output file.
  --new_type_inf                         : Checks for type errors using the new
                                           type inference algorithm.
- --only_closure_dependencies            : Only include files in the transitive
-                                          dependency of the entry points
-                                          (specified by closure_entry_point).
-                                          Files that do not provide dependencies
-                                          will be removed. This supersedes
-                                          manage_closure_dependencies
+ --noinject_library VAL                 : Prevent injecting the named runtime
+                                          libraries.
+ --only_closure_dependencies            : Deprecated: use --dependency_mode=STRI
+                                          CT.
  --output_manifest VAL                  : Prints out a list of all the files in
-                                          the compilation. If --manage_closure_d
-                                          ependencies is on, this will not
-                                          include files that got dropped
-                                          because they were not required. The
-                                          %outname% placeholder expands to the
-                                          JS output file. If you're using
-                                          modularization, using %outname% will
-                                          create a manifest for each module.
+                                          the compilation. If --dependency_mode=
+                                          STRICT or LOOSE is specified, this
+                                          will not include files that got
+                                          dropped because they were not
+                                          required. The %outname% placeholder
+                                          expands to the JS output file. If
+                                          you're using modularization, using
+                                          %outname% will create a manifest for
+                                          each module.
  --output_module_dependencies VAL       : Prints out a JSON file of dependencies
                                           between modules.
  --output_wrapper VAL                   : Interpolate output into this string
@@ -250,6 +265,7 @@
                                           exists.
  --polymer_pass                         : Rewrite Polymer classes to be
                                           compiler-friendly.
+ --preserve_type_annotations            : Preserves type annotations.
  --print_ast                            : Prints a dot file describing the
                                           internal abstract syntax tree and
                                           exits
