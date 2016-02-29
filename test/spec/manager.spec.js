@@ -230,5 +230,48 @@ describe('manager', function() {
 
     });
 
+    describe('#getDependencies() with goog.module', function() {
+
+      it('provides dependencies for a main script (car)', function(done) {
+        var manager = new Manager({
+          closure: false,
+          cwd: fixtures,
+          lib: 'dependencies-goog.module/+(lib|goog)/**/*.js',
+          main: 'dependencies-goog.module/main-*.js'
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'dependencies-goog.module', 'main-car.js'));
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
+          });
+          assert.deepEqual(paths,
+              ['base.js', 'fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
+          done();
+        });
+      });
+
+      it('provides dependencies for a main script (boat)', function(done) {
+        var manager = new Manager({
+          closure: false,
+          cwd: fixtures,
+          lib: 'dependencies-goog.module/+(lib|goog)/**/*.js',
+          main: 'dependencies-goog.module/main-*.js'
+        });
+        manager.on('error', done);
+        manager.on('ready', function() {
+          var dependencies = manager.getDependencies(
+              path.join(fixtures, 'dependencies-goog.module', 'main-boat.js'));
+          var paths = dependencies.map(function(s) {
+            return path.basename(s.path);
+          });
+          assert.deepEqual(paths,
+              ['base.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
+          done();
+        });
+      });
+    });
+
   });
 });
