@@ -15,7 +15,7 @@
   "dependencies": {
     "acorn": "3.0.4",
     "async": "1.5.2",
-    "fs-extra": "0.26.5",
+    "fs-extra": "0.26.6",
     "gaze": "0.5.2",
     "get-down": "1.0.0",
     "glob": "7.0.3",
