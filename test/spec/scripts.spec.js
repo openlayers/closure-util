@@ -138,7 +138,7 @@ describe('scripts', function() {
 
       it('is an array of requires', function() {
         assert.deepEqual(script.requires,
-            ['goog.array', 'goog.array.ArrayLike']);
+            ['goog.asserts', 'goog.array']);
       });
 
     });
