@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "acorn": "3.0.4",
+    "acorn": "3.1.0",
     "async": "1.5.2",
     "fs-extra": "0.26.7",
     "gaze": "1.0.0",
