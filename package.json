@@ -17,7 +17,7 @@
     "async": "1.5.2",
     "fs-extra": "0.30.0",
     "gaze": "1.0.0",
-    "get-down": "1.0.0",
+    "get-down": "1.1.0",
     "glob": "7.0.3",
     "graceful-fs": "4.1.4",
     "handlebars": "4.0.5",
