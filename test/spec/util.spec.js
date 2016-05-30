@@ -129,6 +129,15 @@ describe('like', function() {
     assert.isTrue(like(true, '*'));
   });
 
+  it('compares null literals', function() {
+    assert.isTrue(like(null, null));
+    assert.isFalse(like(null, undefined));
+    assert.isFalse(like(null, 42));
+    assert.isFalse(like(null, ''));
+    assert.isFalse(like(null, 'something'));
+    assert.isFalse(like(null, [42]));
+    assert.isFalse(like(null, {foo: 'bar'}));
+  });
 });
 
 var fixtures = path.join(__dirname, '..', 'fixtures');
