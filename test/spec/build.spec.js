@@ -13,7 +13,7 @@ var fixtures = path.join(__dirname, '..', 'fixtures');
 describe('build', function() {
   it('creates an output file', function(done) {
     // this test runs the compiler, increase the timeout value
-    this.timeout(30000);
+    this.timeout(45000);
     var outputFile = temp.path({suffix: '.js'});
     var configFile = path.join(fixtures, 'config.json');
     build(configFile, outputFile, function(err) {
