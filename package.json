@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "eslint": "3.0.0",
+    "eslint": "3.2.2",
     "eslint-config-openlayers": "5.0.0",
     "mocha": "3.0.0",
     "supertest": "2.0.0"
