@@ -19,7 +19,7 @@
     "gaze": "1.1.1",
     "get-down": "1.1.0",
     "glob": "7.1.0",
-    "graceful-fs": "4.1.6",
+    "graceful-fs": "4.1.8",
     "handlebars": "4.0.5",
     "lodash": "4.16.2",
     "minimatch": "3.0.3",
