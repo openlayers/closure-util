@@ -18,7 +18,7 @@
     "fs-extra": "0.30.0",
     "gaze": "1.1.2",
     "get-down": "1.1.0",
-    "glob": "7.1.0",
+    "glob": "7.1.1",
     "graceful-fs": "4.1.9",
     "handlebars": "4.0.5",
     "lodash": "4.16.3",
