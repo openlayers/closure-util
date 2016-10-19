@@ -36,7 +36,7 @@
     "eslint": "3.8.1",
     "eslint-config-openlayers": "5.0.0",
     "mocha": "3.1.2",
-    "supertest": "2.0.0"
+    "supertest": "2.0.1"
   },
   "scripts": {
     "postinstall": "node ./bin/closure-util.js update",
