@@ -1,6 +1,6 @@
 {
   "globals": {
-    "goog": false,
+    "ol": false,
     "basic": false
   },
   "rules": {

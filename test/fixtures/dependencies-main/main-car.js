@@ -1,1 +1,1 @@
-goog.require('car');
+ol.require('car');

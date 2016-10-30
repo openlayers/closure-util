@@ -1,1 +1,1 @@
-goog.require('parent');
+ol.require('parent');

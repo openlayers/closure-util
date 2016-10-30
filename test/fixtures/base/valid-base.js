@@ -1,7 +1,7 @@
 var foo = 'bar';
 
-// this identifies goog base
-var goog = goog || {};
+// this identifies ol base
+var ol = {};
 
 // the rest is unimportant
 var baz = 'bam';

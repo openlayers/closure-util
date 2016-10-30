@@ -1,3 +1,3 @@
-goog.provide('boat');
+ol.provide('boat');
 
-goog.require('vehicle');
+ol.require('vehicle');

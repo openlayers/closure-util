@@ -1,4 +1,4 @@
-goog.provide('banana');
-goog.provide('flies');
+ol.provide('banana');
+ol.provide('flies');
 
-goog.require('fruit');
+ol.require('fruit');

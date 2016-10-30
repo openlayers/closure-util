@@ -1,1 +1,1 @@
-goog.provide('fuel');
+ol.provide('fuel');

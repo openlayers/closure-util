@@ -1,7 +1,7 @@
 var foo = 'bar';
 
-// this identifies goog base
-var goog = goog || {};
+// this identifies ol base
+var ol = {};
 
 // base files must not provide any other namespace
-goog.provide('foo');
+ol.provide('ol.foo.Bar');

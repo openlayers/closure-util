@@ -1,4 +1,4 @@
-goog.provide('errors');
+ol.provide('errors');
 
 // syntax errors
 

@@ -1,3 +1,3 @@
-goog.provide('vehicle');
+ol.provide('vehicle');
 
-goog.require('fuel');
+ol.require('fuel');

@@ -1,3 +1,3 @@
-goog.provide('fruit');
+ol.provide('fruit');
 
-goog.require('food');
+ol.require('food');

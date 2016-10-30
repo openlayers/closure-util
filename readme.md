@@ -17,7 +17,7 @@ Main options:
 
 More advanced options:
 
- * **config.ignoreRequires** - `string|undefined` A regular expression string. The manager will ignore matching `goog.require`'s that cannot be satisfied instead of throwing an exception. Optional.
+ * **config.ignoreRequires** - `string|undefined` A regular expression string. The manager will ignore matching `ol.require`'s that cannot be satisfied instead of throwing an exception. Optional.
  * **config.closure** - `boolean|undefined` Whether to include Closure library. Default `true`.
 
 The manager is an [event emitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) that emits the following events:

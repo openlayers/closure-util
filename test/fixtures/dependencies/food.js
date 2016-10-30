@@ -1,1 +1,1 @@
-goog.provide('food');
+ol.provide('food');

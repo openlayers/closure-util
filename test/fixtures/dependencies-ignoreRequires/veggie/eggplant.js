@@ -1,1 +1,1 @@
-goog.provide('veggie.eggplant');
+ol.provide('veggie.eggplant');

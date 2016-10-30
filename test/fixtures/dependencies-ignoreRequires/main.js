@@ -1,4 +1,4 @@
-goog.require('meat.beef');
-goog.require('meat.veal');
-goog.require('veggie.carrot');
-goog.require('veggie.eggplant');
+ol.require('meat.beef');
+ol.require('meat.veal');
+ol.require('veggie.carrot');
+ol.require('veggie.eggplant');

@@ -1,1 +1,1 @@
-goog.provide('veggie.carrot');
+ol.provide('veggie.carrot');

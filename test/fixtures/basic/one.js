@@ -1,7 +1,9 @@
-goog.provide('basic.one');
+ol.provide('basic.one');
 
-goog.require('goog.asserts');
-goog.require('goog.array');
+ol.require('ol.asserts');
+ol.require('ol.array');
+
+var basic = {one: {}};
 
 
 /**
@@ -25,6 +27,6 @@ basic.one.Class = function(things) {
  * @param {function()} fn Function to be called with each thing.
  */
 basic.one.Class.prototype.forEach = function(fn) {
-  goog.asserts.assert(!goog.isNull(this.things_));
-  goog.array.forEach(this.things_, fn);
+  ol.asserts.assert(!this.things_);
+  ol.array.forEach(this.things_, fn);
 };

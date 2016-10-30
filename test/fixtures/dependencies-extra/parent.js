@@ -1,1 +1,1 @@
-goog.provide('parent');
+ol.provide('parent');

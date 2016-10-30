@@ -100,7 +100,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'food.js', 'fruit.js', 'banana.js']);
+              ['index.js', 'food.js', 'fruit.js', 'banana.js']);
           done();
         });
       });
@@ -109,7 +109,7 @@ describe('manager', function() {
         var manager = new Manager({
           closure: false,
           cwd: fixtures,
-          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          lib: 'dependencies-main/+(lib|ol)/**/*.js',
           main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
@@ -120,7 +120,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
+              ['index.js', 'fuel.js', 'vehicle.js', 'car.js', 'main-car.js']);
           done();
         });
       });
@@ -129,7 +129,7 @@ describe('manager', function() {
         var manager = new Manager({
           closure: false,
           cwd: fixtures,
-          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          lib: 'dependencies-main/+(lib|ol)/**/*.js',
           main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
@@ -140,7 +140,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
+              ['index.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
           done();
         });
       });
@@ -149,7 +149,7 @@ describe('manager', function() {
         var manager = new Manager({
           closure: false,
           cwd: fixtures,
-          lib: 'dependencies-main/+(lib|goog)/**/*.js',
+          lib: 'dependencies-main/+(lib|ol)/**/*.js',
           main: 'dependencies-main/main-*.js'
         });
         manager.on('error', done);
@@ -159,7 +159,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths.slice(0, 3),
-              ['base.js', 'fuel.js', 'vehicle.js']);
+              ['index.js', 'fuel.js', 'vehicle.js']);
           assert.include(paths, 'boat.js');
           assert.include(paths, 'car.js');
           assert.include(paths, 'truck.js');
@@ -182,27 +182,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'parent.js', 'child.js']);
-          done();
-        });
-      });
-
-      it('includes scripts with goog.addDependency calls', function(done) {
-        var manager = new Manager({
-          closure: false,
-          cwd: fixtures,
-          lib: 'adds-deps/+(lib|goog)/**/*.js',
-          main: 'adds-deps/main.js'
-        });
-        manager.on('error', done);
-        manager.on('ready', function() {
-          var dependencies = manager.getDependencies(
-              path.join(fixtures, 'adds-deps', 'main.js'));
-          var paths = dependencies.map(function(s) {
-            return path.basename(s.path);
-          });
-          assert.deepEqual(paths,
-              ['base.js', 'math.js', 'main.js', 'deps.js']);
+              ['index.js', 'parent.js', 'child.js']);
           done();
         });
       });
@@ -223,7 +203,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'carrot.js', 'eggplant.js', 'main.js']);
+              ['index.js', 'carrot.js', 'eggplant.js', 'main.js']);
           done();
         });
       });

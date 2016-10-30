@@ -33,7 +33,7 @@ describe('scripts', function() {
       it('is the AST', function() {
         var ast = script._ast;
         assert.equal(ast.type, 'Program');
-        assert.lengthOf(ast.body, 5);
+        assert.lengthOf(ast.body, 6);
       });
 
       it('resolves to the same AST on multiple calls', function() {
@@ -46,7 +46,7 @@ describe('scripts', function() {
         assert.isFalse(provide.callee.computed);
         assert.isObject(provide.callee.object);
         assert.equal(provide.callee.object.type, 'Identifier');
-        assert.equal(provide.callee.object.name, 'goog');
+        assert.equal(provide.callee.object.name, 'ol');
         assert.equal(provide.callee.property.type, 'Identifier');
         assert.equal(provide.callee.property.name, 'provide');
 
@@ -54,34 +54,6 @@ describe('scripts', function() {
         assert.lengthOf(args, 1);
         assert.equal(args[0].type, 'Literal');
         assert.equal(args[0].value, 'basic.one');
-      });
-
-    });
-
-    describe('#addsDependencies', function() {
-
-      it('is true for scripts with goog.addDependency calls', function(done) {
-        var p = path.join(fixtures, 'adds-deps', 'goog', 'deps.js');
-        scripts.read(p, function(err, script) {
-          if (err) {
-            done(err);
-          } else {
-            assert.equal(script.addsDependencies, true);
-            done();
-          }
-        });
-      });
-
-      it('is false with no goog.addDependency calls', function(done) {
-        var p = path.join(fixtures, 'adds-deps', 'main.js');
-        scripts.read(p, function(err, script) {
-          if (err) {
-            done(err);
-          } else {
-            assert.equal(script.addsDependencies, false);
-            done();
-          }
-        });
       });
 
     });
@@ -106,7 +78,7 @@ describe('scripts', function() {
               if (err) {
                 return done(err);
               }
-              assert.deepEqual(script.provides, ['goog']);
+              assert.deepEqual(script.provides, ['ol']);
               done();
             });
       });
@@ -137,8 +109,7 @@ describe('scripts', function() {
       });
 
       it('is an array of requires', function() {
-        assert.deepEqual(script.requires,
-            ['goog.asserts', 'goog.array']);
+        assert.deepEqual(script.requires, ['ol.asserts', 'ol.array']);
       });
 
     });

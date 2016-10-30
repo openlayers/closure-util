@@ -1,10 +1,5 @@
 (function(global) {
 
-  global.CLOSURE_DEFINES = {
-    'goog.ENABLE_DEBUG_LOADER': false
-  };
-  global.CLOSURE_NO_DEPS = true;
-
   var paths = {{{ paths }}};
 
 {{#if socket}}
