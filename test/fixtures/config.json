@@ -9,19 +9,10 @@
     "define": [
       "ol.DEBUG=false"
     ],
-    "jscomp_error": [
-      "*"
-    ],
-    "jscomp_off": [
-      "lintChecks",
-      "analyzerChecks",
-      "missingProperties"
-    ],
     "extra_annotation_name": [
       "api", "observable"
     ],
     "compilation_level": "ADVANCED",
-    "warning_level": "VERBOSE",
     "output_wrapper": "(function(){%output%})();",
     "use_types_for_optimization": true
   },
