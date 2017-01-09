@@ -21,7 +21,7 @@
     "glob": "7.1.1",
     "graceful-fs": "4.1.11",
     "handlebars": "4.0.6",
-    "lodash": "4.17.2",
+    "lodash": "4.17.4",
     "minimatch": "3.0.3",
     "mkdirp": "0.5.1",
     "nomnom": "1.8.1",
