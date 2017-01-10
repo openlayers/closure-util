@@ -267,7 +267,7 @@ describe('manager', function() {
             return path.basename(s.path);
           });
           assert.deepEqual(paths,
-              ['base.js', 'fuel.js', 'vehicle.js', 'boat.js', 'main-boat.js']);
+              ['base.js', 'fuel.js', 'vehicle.js', 'vehicle2.js', 'vehicle3.js', 'boat.js', 'main-boat.js']);
           done();
         });
       });

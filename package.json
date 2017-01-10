@@ -48,6 +48,6 @@
     "closure-util": "./bin/closure-util.js"
   },
   "eslintConfig": {
-    "extends": "openlayers"
+    "extends": ["openlayers", ".eslintrc-es6.yaml"]
   }
 }
