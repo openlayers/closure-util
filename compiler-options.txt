@@ -222,6 +222,13 @@ Reports:
  --property_renaming_report VAL         : File where the serialized version of
                                           the property renaming map produced
                                           should be saved (default: )
+ --source_map_include_content           : Includes sources content into source
+                                          map. Greatly increases the size of
+                                          source maps but offers greater
+                                          portability (default: false)
+ --source_map_input VAL                 : Source map locations for input files,
+                                          separated by a '|', (i.e.
+                                          input-file-path|input-source-map)
  --source_map_location_mapping VAL      : Source map location mapping separated
                                           by a '|' (i.e. filesystem-path|webserv
                                           er-path)
