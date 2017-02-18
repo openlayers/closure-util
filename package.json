@@ -26,7 +26,7 @@
     "mkdirp": "0.5.1",
     "nomnom": "1.8.1",
     "npmlog": "4.0.2",
-    "rimraf": "2.5.4",
+    "rimraf": "2.6.0",
     "send": "0.14.2",
     "socket.io": "1.7.3",
     "temp": "0.8.3"
