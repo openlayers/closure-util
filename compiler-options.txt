@@ -98,11 +98,17 @@ Output:
                                           PRINT_INPUT_DELIMITER, SINGLE_QUOTES
  --generate_exports                     : Generates export code for those
                                           marked with @export (default: false)
+ --isolation_mode [NONE | IIFE]         : If set to IIFE the compiler output
+                                          will follow the form:
+                                            (function(){%output%)).call(this);
+                                          Options: NONE, IIFE (default: NONE)
  --output_wrapper VAL                   : Interpolate output into this string
                                           at the place denoted by the marker
                                           token %output%. Use marker token
                                           %output|jsstring% to do js string
-                                          escaping on the output. (default: )
+                                          escaping on the output. Consider
+                                          using the --isolation_mode flag
+                                          instead. (default: )
  --output_wrapper_file VAL              : Loads the specified file and passes
                                           the file contents to the
                                           --output_wrapper flag, replacing the
@@ -142,6 +148,14 @@ Dependency Management:
 JS Modules:
  --js_module_root VAL                   : Path prefixes to be removed from ES6
                                           & CommonJS modules.
+ --module_resolution [BROWSER | LEGACY  : Specifies how the compiler locates
+ | NODE]                                  modules. BROWSER requires all module
+                                          imports to begin with a '.' or '/'
+                                          and have a file extension. NODE uses
+                                          the node module rules. LEGACY
+                                          prepends a '/' to any import not
+                                          already beginning with a '.' or '/'.
+                                          (default: LEGACY)
  --process_common_js_modules            : Process CommonJS modules to a
                                           concatenable form. (default: false)
  --transform_amd_modules                : Transform AMD to CommonJS modules.
@@ -154,8 +168,8 @@ Library and Framework Specific:
                                           with @ngInject (default: false)
  --dart_pass                            : Rewrite Dart Dev Compiler output to
                                           be compiler-friendly. (default: false)
- --polymer_pass                         : Rewrite Polymer classes to be
-                                          compiler-friendly. (default: false)
+ --polymer_pass                         : Equivalent to --polymer_version=1
+                                          (default: false)
  --process_closure_primitives           : Processes built-ins from the Closure
                                           library, such as goog.require(),
                                           goog.provide(), and goog.exportSymbol(
