@@ -168,6 +168,13 @@ Library and Framework Specific:
                                           with @ngInject (default: false)
  --dart_pass                            : Rewrite Dart Dev Compiler output to
                                           be compiler-friendly. (default: false)
+ --force_inject_library VAL             : Force injection of named runtime
+                                          libraries. The format is <name> where
+                                          <name> is the name of a runtime
+                                          library. Possible libraries include:
+                                          base, es6_runtime, runtime_type_check
+ --inject_libraries                     : Allow injecting runtime libraries.
+                                          (default: true)
  --polymer_pass                         : Equivalent to --polymer_version=1
                                           (default: false)
  --process_closure_primitives           : Processes built-ins from the Closure
