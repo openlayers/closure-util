@@ -1,9 +1,9 @@
 # Closure Util
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/openlayers/closure-util.svg)](https://greenkeeper.io/)
 
 Utilities for working with Closure Library projects.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/openlayers/closure-util.svg)](https://greenkeeper.io/)
 [![Current Status](https://secure.travis-ci.org/openlayers/closure-util.png?branch=master)](https://travis-ci.org/openlayers/closure-util)
 
 ## API
