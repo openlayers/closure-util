@@ -74,10 +74,10 @@ Available Error Groups: accessControls, ambiguousFunctionDecl,
     internetExplorerChecks, invalidCasts, misplacedTypeAnnotation,
     missingGetCssName, missingOverride, missingPolyfill, missingProperties,
     missingProvide, missingRequire, missingReturn, msgDescriptions,
-    newCheckTypes, nonStandardJsDocs, reportUnknownTypes, suspiciousCode,
-    strictModuleDepCheck, typeInvalidation, undefinedNames, undefinedVars,
-    unknownDefines, unusedLocalVariables, unusedPrivateMembers, uselessCode,
-    useOfGoogBase, underscore, visibility
+    newCheckTypes, nonStandardJsDocs, missingSourcesWarnings,
+    reportUnknownTypes, suspiciousCode, strictModuleDepCheck, typeInvalidation,
+    undefinedNames, undefinedVars, unknownDefines, unusedLocalVariables,
+    unusedPrivateMembers, uselessCode, useOfGoogBase, underscore, visibility
 
 Output:
  --assume_function_wrapper              : Enable additional optimizations based
