@@ -28,7 +28,7 @@
     "npmlog": "4.0.2",
     "rimraf": "2.6.1",
     "send": "0.15.2",
-    "socket.io": "1.7.3",
+    "socket.io": "1.7.4",
     "temp": "0.8.3"
   },
   "devDependencies": {
