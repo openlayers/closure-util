@@ -20,7 +20,7 @@
     "get-down": "1.1.0",
     "glob": "7.1.1",
     "graceful-fs": "4.1.11",
-    "handlebars": "4.0.8",
+    "handlebars": "4.0.10",
     "lodash": "4.17.4",
     "minimatch": "3.0.4",
     "mkdirp": "0.5.1",
