@@ -23,15 +23,18 @@ Basic Usage:
  --language_in VAL                      : Sets what language spec that input
                                           sources conform. Options:
                                           ECMASCRIPT3, ECMASCRIPT5,
-                                          ECMASCRIPT5_STRICT, ECMASCRIPT6
-                                          (default), ECMASCRIPT6_STRICT,
-                                          ECMASCRIPT6_TYPED (experimental)
-                                          (default: ECMASCRIPT6)
+                                          ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED
+                                          (experimental), ECMASCRIPT_2015,
+                                          ECMASCRIPT_2016, ECMASCRIPT_2017,
+                                          ECMASCRIPT_NEXT (default:
+                                          ECMASCRIPT_2017)
  --language_out VAL                     : Sets what language spec the output
                                           should conform to. Options:
-                                          ECMASCRIPT3 (default), ECMASCRIPT5,
+                                          ECMASCRIPT3, ECMASCRIPT5,
                                           ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED
-                                          (experimental) (default: ECMASCRIPT3)
+                                          (experimental), ECMASCRIPT_2015,
+                                          ECMASCRIPT_2016, ECMASCRIPT_2017,
+                                          ECMASCRIPT_NEXT (default: ECMASCRIPT5)
  --warning_level (-W) [QUIET | DEFAULT  : Specifies the warning level to use.
  | VERBOSE]                               Options: QUIET, DEFAULT, VERBOSE
                                           (default: DEFAULT)
@@ -60,6 +63,10 @@ Warning and Error Management:
  --new_type_inf                         : Checks for type errors using the new
                                           type inference algorithm. (default:
                                           false)
+ --strict_mode_input                    : Assume input sources are to run in
+                                          strict mode. Ignored for language
+                                          modes earlier than ECMASCRIPT_2016.
+                                          (default: true)
  --warnings_whitelist_file VAL          : A file containing warnings to
                                           suppress. Each line should be of the
                                           form
