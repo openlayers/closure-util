@@ -64,9 +64,7 @@ Warning and Error Management:
                                           type inference algorithm. (default:
                                           false)
  --strict_mode_input                    : Assume input sources are to run in
-                                          strict mode. Ignored for language
-                                          modes earlier than ECMASCRIPT_2016.
-                                          (default: true)
+                                          strict mode. (default: true)
  --warnings_whitelist_file VAL          : A file containing warnings to
                                           suppress. Each line should be of the
                                           form
@@ -159,10 +157,8 @@ JS Modules:
  | NODE]                                  modules. BROWSER requires all module
                                           imports to begin with a '.' or '/'
                                           and have a file extension. NODE uses
-                                          the node module rules. LEGACY
-                                          prepends a '/' to any import not
-                                          already beginning with a '.' or '/'.
-                                          (default: LEGACY)
+                                          the node module rules. (default:
+                                          BROWSER)
  --process_common_js_modules            : Process CommonJS modules to a
                                           concatenable form. (default: false)
  --transform_amd_modules                : Transform AMD to CommonJS modules.
