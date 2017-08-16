@@ -72,17 +72,17 @@ Warning and Error Management:
                                           <warning-description> (default: )
 
 Available Error Groups: accessControls, ambiguousFunctionDecl,
-    checkEventfulObjectDisposal, checkRegExp, checkTypes, checkVars,
-    commonJsModuleLoad, conformanceViolations, const, constantProperty,
-    deprecated, deprecatedAnnotations, duplicateMessage, es3, es5Strict,
-    externsValidation, fileoverviewTags, functionParams, globalThis,
-    internetExplorerChecks, invalidCasts, misplacedTypeAnnotation,
-    missingGetCssName, missingOverride, missingPolyfill, missingProperties,
-    missingProvide, missingRequire, missingReturn, msgDescriptions,
-    newCheckTypes, nonStandardJsDocs, missingSourcesWarnings,
-    reportUnknownTypes, suspiciousCode, strictModuleDepCheck, typeInvalidation,
-    undefinedNames, undefinedVars, unknownDefines, unusedLocalVariables,
-    unusedPrivateMembers, uselessCode, useOfGoogBase, underscore, visibility
+    checkRegExp, checkTypes, checkVars, commonJsModuleLoad,
+    conformanceViolations, const, constantProperty, deprecated,
+    deprecatedAnnotations, duplicateMessage, es3, es5Strict, externsValidation,
+    fileoverviewTags, functionParams, globalThis, internetExplorerChecks,
+    invalidCasts, misplacedTypeAnnotation, missingGetCssName, missingOverride,
+    missingPolyfill, missingProperties, missingProvide, missingRequire,
+    missingReturn, msgDescriptions, newCheckTypes, nonStandardJsDocs,
+    missingSourcesWarnings, reportUnknownTypes, suspiciousCode,
+    strictModuleDepCheck, typeInvalidation, undefinedNames, undefinedVars,
+    unknownDefines, unusedLocalVariables, unusedPrivateMembers, uselessCode,
+    useOfGoogBase, underscore, visibility
 
 Output:
  --assume_function_wrapper              : Enable additional optimizations based
@@ -153,12 +153,19 @@ Dependency Management:
 JS Modules:
  --js_module_root VAL                   : Path prefixes to be removed from ES6
                                           & CommonJS modules.
- --module_resolution [BROWSER | LEGACY  : Specifies how the compiler locates
- | NODE]                                  modules. BROWSER requires all module
+ --module_resolution [BROWSER | NODE]   : Specifies how the compiler locates
+                                          modules. BROWSER requires all module
                                           imports to begin with a '.' or '/'
                                           and have a file extension. NODE uses
                                           the node module rules. (default:
                                           BROWSER)
+ --package_json_entry_names VAL         : Ordered list of entries to look for
+                                          in package.json files when processing
+                                          modules with the NODE module
+                                          resolution strategy (i.e.
+                                          esnext:main,browser,main). Defaults
+                                          to a list with the following entries:
+                                          "browser", "module", "main".
  --process_common_js_modules            : Process CommonJS modules to a
                                           concatenable form. (default: false)
  --transform_amd_modules                : Transform AMD to CommonJS modules.
