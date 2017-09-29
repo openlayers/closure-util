@@ -102,26 +102,26 @@ describe('scripts', function() {
 
       it('identifies a valid base file', function(done) {
         scripts.read(path.join(fixtures, 'base', 'valid-base.js'),
-            function(err, script) {
-              if (err) {
-                return done(err);
-              }
-              assert.deepEqual(script.provides, ['goog']);
-              done();
-            });
+          function(err, script) {
+            if (err) {
+              return done(err);
+            }
+            assert.deepEqual(script.provides, ['goog']);
+            done();
+          });
       });
 
       it('throws on invalid base file', function(done) {
         scripts.read(path.join(fixtures, 'base', 'invalid-base.js'),
-            function(err, script) {
-              if (err) {
-                return done(err);
-              }
-              assert.throws(function() {
-                return script.provides;
-              });
-              done();
+          function(err, script) {
+            if (err) {
+              return done(err);
+            }
+            assert.throws(function() {
+              return script.provides;
             });
+            done();
+          });
       });
 
     });
@@ -138,7 +138,7 @@ describe('scripts', function() {
 
       it('is an array of requires', function() {
         assert.deepEqual(script.requires,
-            ['goog.asserts', 'goog.array']);
+          ['goog.asserts', 'goog.array']);
       });
 
     });
@@ -149,13 +149,13 @@ describe('scripts', function() {
 
     it('returns a promise that resolves to a script', function(done) {
       scripts.read(path.join(fixtures, 'basic', 'one.js'),
-          function(err, script) {
-            if (err) {
-              return done(err);
-            }
-            assert.instanceOf(script, scripts.Script);
-            done();
-          });
+        function(err, script) {
+          if (err) {
+            return done(err);
+          }
+          assert.instanceOf(script, scripts.Script);
+          done();
+        });
     });
 
     it('returns a rejected promise for bogus path', function(done) {
