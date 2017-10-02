@@ -44,7 +44,7 @@ describe('The API', function() {
           return path.basename(s);
         });
         assert.deepEqual(names,
-            ['base.js', 'food.js', 'fruit.js', 'banana.js']);
+          ['base.js', 'food.js', 'fruit.js', 'banana.js']);
         done();
       });
     });

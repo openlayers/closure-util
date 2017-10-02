@@ -145,14 +145,14 @@ var fixtures = path.join(__dirname, '..', 'fixtures');
 describe('globs', function() {
   it('matches files based on patterns', function(done) {
     globs(path.join(fixtures, 'dependencies', '**/*.js'),
-        function(err, result) {
-          if (err) {
-            return done(err);
-          }
-          assert.isArray(result);
-          assert.lengthOf(result, 4);
-          done();
-        });
+      function(err, result) {
+        if (err) {
+          return done(err);
+        }
+        assert.isArray(result);
+        assert.lengthOf(result, 4);
+        done();
+      });
   });
 });
 
