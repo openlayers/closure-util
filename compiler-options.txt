@@ -1,7 +1,8 @@
 Basic Usage:
  --compilation_level (-O) VAL           : Specifies the compilation level to
-                                          use. Options: WHITESPACE_ONLY,
-                                          SIMPLE, ADVANCED (default: SIMPLE)
+                                          use. Options: BUNDLE, WHITESPACE_ONLY,
+                                          SIMPLE (default), ADVANCED (default:
+                                          SIMPLE)
  --env [BROWSER | CUSTOM]               : Determines the set of builtin externs
                                           to load. Options: BROWSER, CUSTOM.
                                           Defaults to BROWSER. (default:
@@ -20,21 +21,22 @@ Basic Usage:
  --js_output_file VAL                   : Primary output filename. If not
                                           specified, output is written to
                                           stdout (default: )
- --language_in VAL                      : Sets what language spec that input
-                                          sources conform. Options:
+ --language_in VAL                      : Sets the language spec to which input
+                                          sources should conform. Options:
                                           ECMASCRIPT3, ECMASCRIPT5,
                                           ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED
                                           (experimental), ECMASCRIPT_2015,
                                           ECMASCRIPT_2016, ECMASCRIPT_2017,
                                           ECMASCRIPT_NEXT (default:
                                           ECMASCRIPT_2017)
- --language_out VAL                     : Sets what language spec the output
-                                          should conform to. Options:
+ --language_out VAL                     : Sets the language spec to which
+                                          output should conform. Options:
                                           ECMASCRIPT3, ECMASCRIPT5,
                                           ECMASCRIPT5_STRICT, ECMASCRIPT6_TYPED
                                           (experimental), ECMASCRIPT_2015,
                                           ECMASCRIPT_2016, ECMASCRIPT_2017,
-                                          ECMASCRIPT_NEXT (default: ECMASCRIPT5)
+                                          ECMASCRIPT_NEXT, NO_TRANSPILE
+                                          (default: ECMASCRIPT5)
  --warning_level (-W) [QUIET | DEFAULT  : Specifies the warning level to use.
  | VERBOSE]                               Options: QUIET, DEFAULT, VERBOSE
                                           (default: DEFAULT)
@@ -168,8 +170,6 @@ JS Modules:
                                           "browser", "module", "main".
  --process_common_js_modules            : Process CommonJS modules to a
                                           concatenable form. (default: false)
- --transform_amd_modules                : Transform AMD to CommonJS modules.
-                                          (default: false)
 
 
 Library and Framework Specific:
@@ -223,10 +223,12 @@ Code Splitting:
                                           must correspond with a module
                                           specified using --module. The wrapper
                                           must contain %s as the code
-                                          placeholder. The %basename%
-                                          placeholder can also be used to
-                                          substitute the base name of the
-                                          module output file.
+                                          placeholder. Alternately, %output%
+                                          can be used in place of %s. %n% can
+                                          be used to represent a newline. The
+                                          %basename% placeholder can also be
+                                          used to substitute the base name of
+                                          the module output file.
 
 
 Reports:
