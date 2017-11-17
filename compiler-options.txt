@@ -74,17 +74,16 @@ Warning and Error Management:
                                           <warning-description> (default: )
 
 Available Error Groups: accessControls, ambiguousFunctionDecl,
-    checkRegExp, checkTypes, checkVars, commonJsModuleLoad,
-    conformanceViolations, const, constantProperty, deprecated,
-    deprecatedAnnotations, duplicateMessage, es3, es5Strict, externsValidation,
-    fileoverviewTags, functionParams, globalThis, internetExplorerChecks,
-    invalidCasts, misplacedTypeAnnotation, missingGetCssName, missingOverride,
-    missingPolyfill, missingProperties, missingProvide, missingRequire,
-    missingReturn, msgDescriptions, newCheckTypes, nonStandardJsDocs,
-    missingSourcesWarnings, reportUnknownTypes, suspiciousCode,
-    strictModuleDepCheck, typeInvalidation, undefinedNames, undefinedVars,
-    unknownDefines, unusedLocalVariables, unusedPrivateMembers, uselessCode,
-    useOfGoogBase, underscore, visibility
+    checkRegExp, checkTypes, checkVars, conformanceViolations, const,
+    constantProperty, deprecated, deprecatedAnnotations, duplicateMessage, es3,
+    es5Strict, externsValidation, fileoverviewTags, functionParams, globalThis,
+    internetExplorerChecks, invalidCasts, misplacedTypeAnnotation,
+    missingGetCssName, missingOverride, missingPolyfill, missingProperties,
+    missingProvide, missingRequire, missingReturn, moduleLoad, msgDescriptions,
+    newCheckTypes, nonStandardJsDocs, missingSourcesWarnings,
+    reportUnknownTypes, suspiciousCode, strictModuleDepCheck, typeInvalidation,
+    undefinedNames, undefinedVars, unknownDefines, unusedLocalVariables,
+    unusedPrivateMembers, uselessCode, useOfGoogBase, underscore, visibility
 
 Output:
  --assume_function_wrapper              : Enable additional optimizations based
