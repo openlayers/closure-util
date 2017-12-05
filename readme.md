@@ -1,10 +1,11 @@
 # Closure Util
 
-
 Utilities for working with Closure Library projects.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/openlayers/closure-util.svg)](https://greenkeeper.io/)
 [![Current Status](https://secure.travis-ci.org/openlayers/closure-util.png?branch=master)](https://travis-ci.org/openlayers/closure-util)
+
+**Note**: Closure Util is no longer the recommended tool to build applications together with OpenLayers. OpenLayers v5.x will be available as ES modules only, which are not compatible with Closure Util. See the [OpenLayers v5.x wiki page](https://github.com/openlayers/openlayers/wiki/OpenLayers-v5.x) for more information and update instructions.
 
 ## API
 
